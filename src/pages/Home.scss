@@ -1,0 +1,48 @@
+.home {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(135deg, #0f0f14, #1a1a28);
+  overflow: hidden;
+
+  .glitch span {
+    display: inline-block;
+    color: #7c5cff;
+    font-size: 4rem;
+    font-weight: bold;
+    text-shadow:
+      0 0 5px #7c5cff,
+      0 0 10px #7c5cff;
+    animation: glitch 1s infinite;
+  }
+
+  .subtitle {
+    margin-top: 20px;
+    font-size: 1.8rem;
+    color: #00e5ff;
+    text-shadow: 0 0 5px #00e5ff;
+  }
+}
+
+@keyframes glitch {
+  0% {
+    transform: translate(0);
+  }
+  20% {
+    transform: translate(-2px, 2px);
+  }
+  40% {
+    transform: translate(2px, -2px);
+  }
+  60% {
+    transform: translate(-1px, 1px);
+  }
+  80% {
+    transform: translate(1px, -1px);
+  }
+  100% {
+    transform: translate(0);
+  }
+}
