@@ -90,7 +90,6 @@ const getEmoji = (tag) => {
     "Green Code": "🌱",
     Tailwind: "💨",
     "ACF/SCF": "🗂️",
-    "Mobile First": "📱",
   };
   return map[tag] || "⚙️";
 };
