@@ -11,7 +11,7 @@
 // ============================================================
 
 import PropTypes from "prop-types";
-import useImageLazy from "./useImageLazy";
+import useImageLazy from "./UseImageLazy";
 
 export default function LazyImage({
   src,
