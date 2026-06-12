@@ -1,11 +1,79 @@
-.parallax {
-  height: 80vh;
-  background-attachment: fixed;
-  background-size: cover;
-  background-position: center;
+// ============================================================
+// ParallaxSection.scss
+//
+// FIX WARNING FRAMER MOTION :
+// "Please ensure that the container has a non-static position"
+//
+// Framer Motion useScroll({ target: ref }) a besoin que l'élément
+// référencé ait une position NON statique (relative, absolute, fixed)
+// pour calculer correctement son offset dans la page.
+//
+// SOLUTION : position: relative est appliqué ici EN CSS
+// ET en style inline dans le JSX (double protection).
+// ============================================================
+
+@use "../styles/variables" as *;
+
+// --- Section parallax principale ---
+.parallax-section {
+  position: relative; // ← OBLIGATOIRE pour Framer Motion useScroll
+  will-change: transform; // Optimisation GPU — crée un layer composite
+  overflow: hidden;
+}
+
+// --- Wrapper image parallax ---
+// L'image est scale(1.2) donc elle dépasse → overflow:hidden masque le dépassement
+.parallax-image-wrapper {
+  position: relative; // ← OBLIGATOIRE
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  border-radius: inherit;
+  will-change: transform;
+
+  .parallax-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    will-change: transform;
+    display: block;
+    // Le scale 1.2 est appliqué inline via Framer Motion
+    // Il faut de la marge pour que le parallax ne révèle pas les bords
+  }
+}
+
+// --- Texte défilant horizontal ---
+.parallax-text-wrapper {
+  position: relative; // ← OBLIGATOIRE
+  overflow: hidden;
+  width: 100%;
+  padding: $spacing-lg 0;
+  // Ligne séparatrice subtile en haut et en bas
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  margin: $spacing-xl 0;
+}
+
+.parallax-text-inner {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  color: #fff;
-  text-shadow: 0 0 5px black;
+  gap: $spacing-xl;
+  white-space: nowrap;
+  will-change: transform;
+
+  span {
+    font-family: $font-display;
+    font-size: clamp(1.2rem, 3.5vw, 2.5rem);
+    font-weight: $fw-black;
+    // Texte "fantôme" — outline couleur primaire, fond transparent
+    color: transparent;
+    -webkit-text-stroke: 1px rgb(13, 130, 240);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding-right: $spacing-xl;
+    transition: -webkit-text-stroke-color $transition-base;
+  }
+
+  &:hover span {
+    -webkit-text-stroke-color: rgba(255, 77, 158, 0.3);
+  }
 }

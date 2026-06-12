@@ -1,10 +1,175 @@
-.reveal {
-  opacity: 0;
-  transform: translateY(40px);
-  transition: all 0.6s ease;
+@use "./variables" as *;
+
+// --- Keyframes de base ---
+
+// Fondu entrant depuis le bas (reveal au scroll)
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
-.reveal.visible {
-  opacity: 1;
-  transform: translateY(0);
+// Fondu entrant depuis la gauche
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Fondu entrant depuis la droite
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Zoom léger à l'entrée
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.92);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+// Pulsation douce (pour les éléments "vivants")
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.05);
+  }
+}
+
+// Rotation continue (loader, icônes)
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// Flottement vertical (éléments décoratifs)
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+// Glissement de texte (typing effect-like)
+@keyframes slideText {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+// Clignotement curseur
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+// Gradient animé (fond hero)
+@keyframes gradientShift {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+// Ligne qui s'étend
+@keyframes lineGrow {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+// --- Classes utilitaires ---
+
+// Applique fadeInUp avec délai configurable
+// Usage : class="animate-up" style="--delay: 0.2s"
+.animate-up {
+  animation: fadeInUp 0.8s $transition-slow both;
+  animation-delay: var(--delay, 0s);
+}
+
+.animate-left {
+  animation: fadeInLeft 0.8s $transition-slow both;
+  animation-delay: var(--delay, 0s);
+}
+
+.animate-right {
+  animation: fadeInRight 0.8s $transition-slow both;
+  animation-delay: var(--delay, 0s);
+}
+
+.animate-scale {
+  animation: scaleIn 0.6s $transition-slow both;
+  animation-delay: var(--delay, 0s);
+}
+
+// Classe ajoutée par l'IntersectionObserver pour déclencher l'animation
+.is-visible {
+  animation-play-state: running;
+}
+
+// Éléments en attente (avant d'être visibles)
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition:
+    opacity 0.7s $transition-slow,
+    transform 0.7s $transition-slow;
+  transition-delay: var(--delay, 0s);
+
+  &.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Float décoratif
+.float-anim {
+  animation: float 4s ease-in-out infinite;
 }

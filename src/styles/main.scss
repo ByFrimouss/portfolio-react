@@ -1,9 +1,230 @@
+// ============================================================
+// main.scss
+// RÈGLE SASS : @use DOIT être en tout premier,
+// avant @import et avant tout autre code.
+// ============================================================
+
+// 1. @use EN PREMIER — obligatoire en Sass moderne
 @use "./variables" as *;
-@use "./animations" as *;
+@use "./animations";
+
+// 2. @import Google Fonts — après les @use
+@import url("https://fonts.googleapis.com/css2?family=Syne:wght@400;700;800;900&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap");
+
+// ============================================================
+// THÈME DARK (défaut)
+// ============================================================
+:root {
+  --color-bg: #050b16;
+  --color-bg-alt: #080f1e;
+  --color-surface: #0d1628;
+  --color-border: rgba(106, 92, 255, 0.15);
+
+  --color-primary: #6a5cff;
+  --color-secondary: #ff4d9e;
+  --color-accent: #00e5ff;
+
+  --color-text: #e8ecf8;
+  --color-text-muted: #7b85a8;
+  --color-text-light: #ffffff;
+
+  --hero-gradient-1: rgba(106, 92, 255, 0.18);
+  --hero-gradient-2: rgba(255, 77, 158, 0.12);
+  --hero-grid-color: rgba(255, 255, 255, 0.035);
+  --shadow-glow: 0 0 40px rgba(106, 92, 255, 0.35);
+  --shadow-pink: 0 0 40px rgba(255, 77, 158, 0.25);
+
+  --navbar-height: #{$navbar-height};
+  color-scheme: dark;
+}
+
+// ============================================================
+// THÈME LIGHT
+// ============================================================
+[data-theme="light"] {
+  --color-bg: #f0f2ff;
+  --color-bg-alt: #e4e8f8;
+  --color-surface: #ffffff;
+  --color-border: rgba(106, 92, 255, 0.2);
+
+  --color-primary: #5146e8;
+  --color-secondary: #e8307e;
+  --color-accent: #0099cc;
+
+  --color-text: #1a1f3a;
+  --color-text-muted: #5a6080;
+  --color-text-light: #1a1f3a;
+
+  --hero-gradient-1: rgba(106, 92, 255, 0.07);
+  --hero-gradient-2: rgba(255, 77, 158, 0.05);
+  --hero-grid-color: rgba(0, 0, 0, 0.04);
+  --shadow-glow: 0 0 40px rgba(81, 70, 232, 0.15);
+  --shadow-pink: 0 0 40px rgba(232, 48, 126, 0.12);
+
+  color-scheme: light;
+}
+
+// ============================================================
+// RESET
+// ============================================================
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  position: relative; /* Fix Framer Motion useScroll warning */
+  font-size: 16px;
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
 
 body {
-  margin: 0;
-  font-family: "Inter", sans-serif;
-  background: $dark;
-  color: $text;
+  font-family: $font-body;
+  color: var(--color-text);
+  background-color: var(--color-bg);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  transition:
+    background-color 0.35s ease,
+    color 0.35s ease;
+}
+
+::selection {
+  background: rgba(106, 92, 255, 0.4);
+  color: #fff;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: color $transition-base;
+}
+img,
+video {
+  max-width: 100%;
+  display: block;
+}
+ul,
+ol {
+  list-style: none;
+}
+button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  font-family: inherit;
+}
+
+// ============================================================
+// LAYOUT
+// ============================================================
+.container {
+  width: 90%;
+  max-width: $container-max;
+  margin: 0 auto;
+  padding: 0 $spacing-md;
+}
+
+.section {
+  position: relative;
+}
+
+.section-label {
+  font-family: $font-mono;
+  font-size: $fs-small;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--color-primary);
+  display: block;
+  margin-bottom: $spacing-sm;
+}
+
+.section-title {
+  font-family: $font-display;
+  font-size: $fs-h2;
+  font-weight: $fw-black;
+  color: var(--color-text-light);
+  line-height: 1.1;
+  margin-bottom: $spacing-lg;
+}
+
+.section-header {
+  margin-bottom: $spacing-xl;
+}
+
+// ============================================================
+// SCROLLBAR
+// ============================================================
+::-webkit-scrollbar {
+  width: 5px;
+}
+::-webkit-scrollbar-track {
+  background: var(--color-bg);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    to bottom,
+    var(--color-primary),
+    var(--color-secondary)
+  );
+  border-radius: $radius-pill;
+}
+
+// ============================================================
+// BOUTONS GLOBAUX
+// ============================================================
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: 0.75rem 1.75rem;
+  border-radius: $radius-sm;
+  font-family: $font-body;
+  font-size: $fs-small;
+  font-weight: $fw-medium;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all $transition-base;
+
+  &--primary {
+    background: linear-gradient(
+      135deg,
+      var(--color-primary) 0%,
+      var(--color-secondary) 100%
+    );
+    color: #fff !important;
+    border: none;
+
+    &:hover {
+      opacity: 0.88;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-pink);
+      .btn__arrow {
+        transform: translateX(4px);
+      }
+    }
+  }
+
+  &--ghost {
+    background: transparent;
+    color: var(--color-text);
+    border: 1px solid var(--color-border);
+
+    &:hover {
+      border-color: var(--color-primary);
+      color: var(--color-primary);
+    }
+  }
+
+  &__arrow {
+    display: inline-block;
+    transition: transform $transition-base;
+  }
 }

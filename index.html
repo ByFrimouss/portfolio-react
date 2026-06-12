@@ -1,10 +1,40 @@
 <!doctype html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>portfolio-react</title>
+
+    <!--
+      Permissions Policy en meta tag.
+      Edge lit ce header EN PLUS des headers HTTP de vite.config.js.
+      lazyload=()  → on gère le lazy loading nous-mêmes (LazyImage.jsx)
+      unload=()    → event déprécié, on ne l'utilise pas
+    -->
+    <meta
+      http-equiv="Permissions-Policy"
+      content="lazyload=(), unload=(), camera=(), microphone=(), geolocation=()"
+    />
+
+    <!-- Préconnexion Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+
+    <meta
+      name="description"
+      content="Portfolio de Stéphanie COUPAMA — Développeuse React et WordPress, La Réunion."
+    />
+    <meta name="author" content="Stéphanie COUPAMA — By Fri'MouSs" />
+
+    <meta property="og:title" content="Stéphanie COUPAMA — Portfolio" />
+    <meta
+      property="og:description"
+      content="Développeuse React et WordPress basée à La Réunion."
+    />
+    <meta property="og:type" content="website" />
+
+    <title>Portfolio de Stéphanie — By Fri'MouSs</title>
   </head>
   <body>
     <div id="root"></div>

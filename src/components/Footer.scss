@@ -1,0 +1,97 @@
+@use "../styles/variables" as *;
+
+.footer {
+  border-top: 1px solid $color-border;
+  padding: $spacing-xl 0 $spacing-lg;
+  background: $color-bg;
+
+  &__top {
+    display: grid;
+    grid-template-columns: 1fr auto auto;
+    gap: $spacing-xl;
+    align-items: start;
+    margin-bottom: $spacing-xl;
+
+    @media (max-width: $bp-md) {
+      grid-template-columns: 1fr;
+      gap: $spacing-lg;
+    }
+  }
+
+  &__brand {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-xs;
+  }
+
+  &__logo {
+    font-family: $font-display;
+    font-size: 1.5rem;
+    font-weight: $fw-black;
+    color: $color-text-light;
+  }
+
+  &__pseudo {
+    font-family: $font-mono;
+    font-size: $fs-small;
+    color: $color-primary;
+    letter-spacing: 0.05em;
+  }
+
+  &__tagline {
+    font-size: $fs-small;
+    color: $color-text-muted;
+    max-width: 240px;
+    margin-top: $spacing-xs;
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+
+  &__nav-link {
+    font-size: $fs-small;
+    color: $color-text-muted;
+    text-decoration: none;
+    transition: color $transition-fast;
+    &:hover {
+      color: $color-text-light;
+    }
+  }
+
+  &__social {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-sm;
+  }
+
+  &__social-link {
+    font-family: $font-mono;
+    font-size: $fs-small;
+    color: $color-text-muted;
+    text-decoration: none;
+    transition: color $transition-fast;
+    &:hover {
+      color: $color-primary;
+    }
+  }
+
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: $spacing-lg;
+    border-top: 1px solid $color-border;
+    flex-wrap: wrap;
+    gap: $spacing-sm;
+  }
+
+  &__copy,
+  &__made {
+    font-family: $font-mono;
+    font-size: 0.75rem;
+    color: $color-text-muted;
+  }
+}

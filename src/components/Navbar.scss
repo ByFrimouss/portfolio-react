@@ -1,66 +1,225 @@
 @use "../styles/variables" as *;
 
+// ============================================================
+// Navbar.scss
+// Styles de la barre de navigation.
+// BEM : .navbar → .navbar__container → .navbar__nav etc.
+// ============================================================
+
 .navbar {
-  position: fixed;
-  width: 100%;
+  position: fixed; // Reste en haut au scroll
   top: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 2rem;
-  z-index: 999;
-  backdrop-filter: blur(8px);
-  transition: background 0.3s;
+  left: 0;
+  right: 0;
+  z-index: $z-navbar;
+  height: $navbar-height;
+  padding: 0;
+  transition:
+    background $transition-base,
+    backdrop-filter $transition-base,
+    box-shadow $transition-base;
 
-  &.dark {
-    background: rgba(15, 15, 20, 0.7);
-    color: $text;
+  // État initial : transparent
+  background: transparent;
+
+  // Après le scroll : fond flouté (glassmorphism)
+  &--scrolled {
+    background: rgba(10, 10, 15, 0.85);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    box-shadow: 0 1px 0 $color-border;
   }
 
-  &.light {
-    background: rgba(255, 255, 255, 0.7);
-    color: $dark;
-  }
-
-  .logo {
-    font-weight: bold;
-    font-size: 1.5rem;
-    color: $primary;
-    text-shadow: 0 0 5px $primary;
-  }
-
-  .nav-links {
-    list-style: none;
+  &__container {
     display: flex;
-    gap: 2rem;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    width: 90%;
+    max-width: $container-max;
+    margin: 0 auto;
+    padding: 0 $spacing-md;
+  }
 
-    li a {
-      text-decoration: none;
-      font-weight: 500;
-      transition: all 0.3s;
-      color: inherit;
+  // --- Logo ---
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    text-decoration: none;
+    z-index: $z-above;
 
-      &:hover {
-        color: $secondary;
-        text-shadow: 0 0 8px $secondary;
-      }
+    &-text {
+      font-family: $font-display;
+      font-size: 1.4rem;
+      font-weight: $fw-black;
+      color: $color-text-light;
+      letter-spacing: -0.03em;
+    }
 
-      &.active {
-        color: $primary;
-        text-shadow: 0 0 8px $primary;
+    &-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: $color-primary;
+      // Pulsation douce pour attirer l'oeil
+      animation: pulse 2s ease-in-out infinite;
+    }
+  }
+
+  // --- Navigation ---
+  &__nav {
+    display: flex;
+    align-items: center;
+    gap: $spacing-xl;
+
+    @media (max-width: $bp-md) {
+      // Mobile : menu en overlay plein écran
+      position: fixed;
+      inset: 0;
+      flex-direction: column;
+      justify-content: center;
+      background: rgba(10, 10, 15, 0.98);
+      backdrop-filter: blur(20px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity $transition-base;
+
+      &--open {
+        opacity: 1;
+        pointer-events: all;
       }
     }
   }
 
-  .theme-toggle {
-    background: none;
-    border: none;
-    font-size: 1.5rem;
+  &__list {
+    display: flex;
+    align-items: center;
+    gap: $spacing-lg;
+    list-style: none;
+
+    @media (max-width: $bp-md) {
+      flex-direction: column;
+      gap: $spacing-xl;
+    }
+  }
+
+  &__link {
+    font-family: $font-body;
+    font-size: $fs-small;
+    font-weight: $fw-medium;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: $color-text-muted;
+    text-decoration: none;
+    position: relative;
+    transition: color $transition-fast;
+
+    // Underline animée
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: -4px;
+      left: 0;
+      right: 0;
+      height: 1px;
+      background: $color-primary;
+      transform: scaleX(0);
+      transform-origin: left;
+      transition: transform $transition-base;
+    }
+
+    &:hover,
+    &.active {
+      color: $color-text-light;
+
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+
+    @media (max-width: $bp-md) {
+      font-size: 1.5rem;
+      letter-spacing: 0.1em;
+    }
+  }
+
+  // --- Bouton thème ---
+  &__theme-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: $radius-sm;
+    background: $color-surface;
+    border: 1px solid $color-border;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
     cursor: pointer;
-    transition: transform 0.3s;
+    transition:
+      background $transition-fast,
+      transform $transition-fast;
 
     &:hover {
-      transform: rotate(20deg);
+      background: rgba(124, 107, 255, 0.2);
+      transform: scale(1.05);
     }
+
+    // Visible seulement en desktop (hors nav)
+    &--desktop {
+      @media (max-width: $bp-md) {
+        display: none;
+      }
+    }
+  }
+
+  // --- Burger ---
+  &__burger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    width: 30px;
+    cursor: pointer;
+    z-index: $z-above + 1;
+
+    @media (max-width: $bp-md) {
+      display: flex;
+    }
+
+    span {
+      display: block;
+      height: 2px;
+      background: $color-text;
+      border-radius: $radius-pill;
+      transition:
+        transform $transition-base,
+        opacity $transition-base;
+    }
+
+    // Animation du burger → X
+    &--open {
+      span:nth-child(1) {
+        transform: translateY(7px) rotate(45deg);
+      }
+      span:nth-child(2) {
+        opacity: 0;
+      }
+      span:nth-child(3) {
+        transform: translateY(-7px) rotate(-45deg);
+      }
+    }
+  }
+}
+
+// Keyframes pulse (réutilisé depuis animations.scss)
+@keyframes pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.6;
   }
 }

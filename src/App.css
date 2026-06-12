@@ -1,42 +1,39 @@
+/* ============================================================
+   App.css
+   RÈGLES CRITIQUES pour le bon fonctionnement du layout.
+   ============================================================ */
+
+/* Reset html/body pour que le fond couvre tout */
+html,
+body {
+  min-height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* #root créé par Vite — doit occuper toute la hauteur */
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+  min-height: 100vh;
+  width: 100%;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+/* .app-root : position relative OBLIGATOIRE pour Framer Motion.
+   useScroll() remonte le DOM pour trouver le premier ancêtre
+   positionné (non-static). Sans ça : warning console +
+   l'effet parallax ne fonctionne pas. */
+.app-root {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  /* Empêche le canvas CursorTrail de créer un scroll horizontal */
+  overflow-x: hidden;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+/* .app-main : flex:1 pousse le footer tout en bas même
+   sur les pages avec peu de contenu */
+.app-main {
+  position: relative; /* Deuxième ancêtre positionné pour Framer Motion */
+  flex: 1;
+  width: 100%;
 }

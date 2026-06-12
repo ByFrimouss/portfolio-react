@@ -1,0 +1,356 @@
+@use "../styles/variables" as *;
+
+// ============================================================
+// HeroSlider.scss
+// Styles du Hero — section d'accroche principale.
+// ============================================================
+
+.hero {
+  position: relative;
+  min-height: 100svh; // svh = small viewport height (mobile-friendly)
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  padding-top: $navbar-height;
+
+  // --- Fond ---
+  &__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+  }
+
+  // Gradient radial depuis le centre-gauche
+  &__gradient {
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(
+        ellipse 80% 60% at 20% 50%,
+        rgba(124, 107, 255, 0.15) 0%,
+        transparent 60%
+      ),
+      radial-gradient(
+        ellipse 60% 40% at 80% 80%,
+        rgba(0, 245, 212, 0.08) 0%,
+        transparent 50%
+      );
+  }
+
+  // Grille de fond (points)
+  &__grid {
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(
+      circle,
+      rgba(255, 255, 255, 0.04) 1px,
+      transparent 1px
+    );
+    background-size: 40px 40px;
+  }
+
+  // Orbes flottantes
+  &__orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    pointer-events: none;
+
+    &--1 {
+      width: 500px;
+      height: 500px;
+      top: -100px;
+      left: -100px;
+      background: rgba(124, 107, 255, 0.12);
+    }
+
+    &--2 {
+      width: 400px;
+      height: 400px;
+      bottom: -100px;
+      right: 10%;
+      background: rgba(0, 245, 212, 0.08);
+    }
+  }
+
+  // --- Contenu ---
+  &__container {
+    position: relative;
+    z-index: $z-base;
+    padding: $spacing-xxl 0;
+  }
+
+  // Badge disponibilité
+  &__badge {
+    display: inline-flex;
+    align-items: center;
+    gap: $spacing-sm;
+    padding: $spacing-xs $spacing-md;
+    border: 1px solid $color-border;
+    border-radius: $radius-pill;
+    background: rgba(124, 107, 255, 0.08);
+    font-family: $font-mono;
+    font-size: $fs-small;
+    color: $color-text-muted;
+    margin-bottom: $spacing-lg;
+    letter-spacing: 0.03em;
+
+    &-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: $color-accent;
+      // Pulsation "disponible"
+      animation: badgePulse 2s ease-in-out infinite;
+    }
+  }
+
+  // --- Titre ---
+  &__title-wrapper {
+    overflow: hidden;
+    margin-bottom: $spacing-md;
+  }
+
+  &__greeting {
+    font-family: $font-display;
+    font-size: $fs-hero;
+    font-weight: $fw-light;
+    color: $color-text-muted;
+    line-height: 1;
+    letter-spacing: -0.03em;
+    display: block;
+  }
+
+  &__name {
+    font-family: $font-display;
+    font-size: $fs-hero;
+    font-weight: $fw-black;
+    color: $color-text-light;
+    line-height: 1;
+    letter-spacing: -0.04em;
+    display: block;
+
+    // Dégradé sur le nom
+    background: linear-gradient(
+      135deg,
+      $color-text-light 30%,
+      $color-primary 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  // Chaque lettre animée (perspective 3D)
+  &__letter {
+    display: inline-block;
+    transform-origin: bottom;
+  }
+
+  // --- Rôle rotatif ---
+  &__role-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 2px;
+    height: 2.5rem;
+    margin-bottom: $spacing-lg;
+    overflow: hidden;
+  }
+
+  &__role {
+    font-family: $font-mono;
+    font-size: clamp(1rem, 2vw, 1.3rem);
+    color: $color-primary;
+    letter-spacing: 0.05em;
+    display: block;
+  }
+
+  &__cursor {
+    font-family: $font-mono;
+    font-size: 1.2rem;
+    color: $color-primary;
+    line-height: 1;
+  }
+
+  // --- Description ---
+  &__desc {
+    font-size: clamp(1rem, 1.5vw, 1.15rem);
+    color: $color-text-muted;
+    max-width: 520px;
+    line-height: 1.7;
+    margin-bottom: $spacing-xl;
+  }
+
+  // --- CTA Buttons ---
+  &__cta {
+    display: flex;
+    align-items: center;
+    gap: $spacing-md;
+    flex-wrap: wrap;
+  }
+
+  // --- Scroll indicator ---
+  &__scroll {
+    position: absolute;
+    bottom: $spacing-xl;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: $spacing-sm;
+
+    span {
+      font-family: $font-mono;
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      color: $color-text-muted;
+      text-transform: uppercase;
+    }
+  }
+
+  &__scroll-line {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, $color-primary, transparent);
+    transform-origin: top;
+  }
+
+  &__visual {
+    position: absolute;
+    right: 5%;
+    bottom: 0;
+    pointer-events: none;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba(10, 10, 20, 0.4);
+    pointer-events: none;
+    border-radius: 20px;
+  }
+
+  &__visual::before {
+    content: "";
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    background: radial-gradient(
+      circle,
+      rgba(124, 107, 255, 0.45),
+      transparent 70%
+    );
+    filter: blur(60px);
+    z-index: -1;
+  }
+
+  &__photo {
+    height: 85vh;
+    width: auto;
+    object-fit: cover;
+    object-position: center top;
+    transform: scale(1.15);
+    filter: drop-shadow(0 40px 70px rgba(0, 0, 0, 0.35));
+  }
+}
+
+@media (max-width: 768px) {
+  .hero__visual {
+    display: none;
+  }
+
+  .hero__greeting {
+    font-size: clamp(1.2rem, 5vw, 1.8rem);
+  }
+
+  .hero__name {
+    font-size: clamp(2rem, 10vw, 3rem);
+  }
+
+  .hero__role {
+    font-size: clamp(0.9rem, 4vw, 1.1rem);
+  }
+
+  .hero__desc {
+    font-size: 0.875rem;
+    max-width: 100%;
+  }
+
+  .hero__scroll {
+    display: none;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero__greeting {
+    font-size: clamp(1rem, 4.5vw, 1.4rem);
+  }
+
+  .hero__name {
+    font-size: clamp(1.8rem, 9vw, 2.5rem);
+  }
+}
+
+// --- Boutons globaux ---
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-sm;
+  padding: 0.75rem 1.75rem;
+  border-radius: $radius-sm;
+  font-family: $font-body;
+  font-size: $fs-small;
+  font-weight: $fw-medium;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: all $transition-base;
+  position: relative;
+  overflow: hidden;
+
+  // Bouton primaire
+  &--primary {
+    background: $color-primary;
+    color: $color-text-light;
+    border: 1px solid $color-primary;
+
+    &:hover {
+      background: transparent;
+      color: $color-primary;
+      .btn__arrow {
+        transform: translateX(4px);
+      }
+    }
+  }
+
+  // Bouton ghost (contour)
+  &--ghost {
+    background: transparent;
+    color: $color-text;
+    border: 1px solid $color-border;
+
+    &:hover {
+      border-color: $color-primary;
+      color: $color-primary;
+    }
+  }
+
+  &__arrow {
+    display: inline-block;
+    transition: transform $transition-base;
+  }
+}
+
+// --- Animations ---
+@keyframes badgePulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 rgba(0, 245, 212, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 0 6px rgba(0, 245, 212, 0);
+  }
+}
