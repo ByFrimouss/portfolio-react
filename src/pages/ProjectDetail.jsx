@@ -99,12 +99,12 @@ export default function ProjectDetail() {
   const project = getProjectBySlug(slug);
 
   const [selectedIndex, setSelectedIndex] = useState(null);
-  // 👇 AJOUT — state zoom
+  // State zoom
   const [isZoomed, setIsZoomed] = useState(false);
 
   const images = project?.details?.images || [];
 
-  // 👇 AJOUT — fonction qui ferme la lightbox ET reset le zoom
+  // Fonction qui ferme la lightbox ET reset le zoom
   const closeLightbox = () => {
     setSelectedIndex(null);
     setIsZoomed(false);
@@ -114,7 +114,7 @@ export default function ProjectDetail() {
     const handleKey = (e) => {
       if (selectedIndex === null) return;
 
-      // 👇 MODIFIÉ — utilise closeLightbox au lieu de setSelectedIndex(null)
+      // Utilise closeLightbox au lieu de setSelectedIndex(null)
       if (e.key === "Escape") closeLightbox();
 
       if (e.key === "ArrowRight") {
