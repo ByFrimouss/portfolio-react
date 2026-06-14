@@ -202,10 +202,10 @@ export default function HeroSlider() {
       {/* PHOTO PARALLAX */}
       <div className="hero__visual">
         <motion.img
-          src="/images/stephanie-reduit.jpg"
+          src="/images/stephanie-reduit.png"
           alt="Stéphanie Coupama"
           className="hero__photo"
-          fetchpriority="high"
+          fetchPriority="high"
           decoding="async"
           style={{ y: smoothY }}
           animate={{ x: [0, 5, 0, -5, 0], rotateZ: [-1, 1, -1] }}

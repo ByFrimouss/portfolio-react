@@ -32,7 +32,6 @@ export default defineConfig({
     headers: {
       // Permissions Policy — supprime les warnings Edge/Chrome
       "Permissions-Policy": [
-        "lazyload=()", // Désactive le lazy loading natif navigateur
         "unload=()", // Désactive l'event unload déprécié
         "camera=()", // Non utilisé
         "microphone=()", // Non utilisé
@@ -56,7 +55,6 @@ export default defineConfig({
     // Mêmes headers pour `npm run preview` (build de production local)
     headers: {
       "Permissions-Policy": [
-        "lazyload=()",
         "unload=()",
         "camera=()",
         "microphone=()",
