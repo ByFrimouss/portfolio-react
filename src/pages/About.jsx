@@ -195,7 +195,7 @@ export default function About() {
               transition={{ duration: 0.7, delay: 0.1 }}
             >
               <ParallaxImage
-                src="/images/profil.jpg"
+                src="/images/profil.webp"
                 alt="Stéphanie COUPAMA — Fri'MouSs"
                 speed={0.25}
               />

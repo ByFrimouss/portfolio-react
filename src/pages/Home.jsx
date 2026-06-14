@@ -246,7 +246,7 @@ export default function Home() {
 
           <div className="home-about__image">
             <ParallaxImage
-              src="/images/profil.jpg"
+              src="/images/profil.webp"
               alt="Stéphanie COUPAMA"
               speed={0.3}
             />

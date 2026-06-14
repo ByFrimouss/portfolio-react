@@ -11,7 +11,7 @@ export const projects = [
     subtitle: "React 19 · Framer Motion · Redux · Vite · SASS",
     description:
       "Portfolio personnel développé from scratch avec React 19 : animations avancées avec Framer Motion, curseur personnalisé, parallaxe, transitions de routes, mode clair/sombre et présentation complète de mes projets.",
-    image: "/images/project-portfolio.png",
+    image: "/images/project-portfolio.webp",
     tags: [
       "React",
       "Framer Motion",
@@ -162,7 +162,7 @@ export const projects = [
     subtitle: "React · Redux Toolkit · Vite · npm · Lighthouse",
     description:
       "Migration complète de l'application RH HRnet de jQuery vers React : conversion d'un plugin jQuery en composant React publié sur npm, remplacement des plugins restants, audit de performance Lighthouse avant/après.",
-    image: "/images/hero-banner-hrnet.png",
+    image: "/images/hero-banner-hrnet.webp",
     tags: ["React", "Redux Toolkit", "Vite", "SASS", "npm", "JavaScript"],
     github: "https://github.com/ByFrimouss/hrnet-react",
     npm: "https://www.npmjs.com/package/@byfrimouss/hrnet-modal-react",
@@ -296,11 +296,11 @@ export const projects = [
       ],
 
       images: [
-        "/images/hero-banner-hrnet.png",
-        "/images/creation-employee-hrnet.png",
-        "/images/liste-employee-hrnet.png",
-        "/images/publication-npm-hrnet.png",
-        "/images/doc-npm-hrnet.png",
+        "/images/hero-banner-hrnet.webp",
+        "/images/creation-employee-hrnet.webp",
+        "/images/liste-employee-hrnet.webp",
+        "/images/publication-npm-hrnet.webp",
+        "/images/doc-npm-hrnet.webp",
       ],
     },
   },
@@ -312,7 +312,7 @@ export const projects = [
     subtitle: "React · Redux · API REST · JWT · Swagger",
     description:
       "Développement front-end d'une application bancaire avec React et Redux : authentification JWT, gestion du profil utilisateur et modélisation des endpoints API transactions avec Swagger.",
-    image: "/images/hero-banner-argentbank.png",
+    image: "/images/hero-banner-argentbank.webp",
     tags: [
       "React",
       "Redux",
@@ -432,14 +432,14 @@ export const projects = [
       ],
 
       video: "/videos/prise-en-main-de-lapp-argentbank.mp4",
-      videoPoster: "/images/hero-banner-argentbank.png",
+      videoPoster: "/images/hero-banner-argentbank.webp",
       images: [
-        "/images/hero-banner-argentbank.png",
-        "/images/connexion-argentbank.png",
-        "/images/tableau-bord-argentbank.png",
-        "/images/editname-argentbank.png",
-        "/images/page-transaction-argentbank.png",
-        "/images/transaction-seule-argentbank.png",
+        "/images/hero-banner-argentbank.webp",
+        "/images/connexion-argentbank.webp",
+        "/images/tableau-bord-argentbank.webp",
+        "/images/editname-argentbank.webp",
+        "/images/page-transaction-argentbank.webp",
+        "/images/transaction-seule-argentbank.webp",
       ],
     },
   },
@@ -451,7 +451,7 @@ export const projects = [
     subtitle: "React · Recharts · Axios · JSDoc · Node.js",
     description:
       "Développement d'un tableau de bord d'analytics de coaching sportif avec React : intégration de graphiques avancés (BarChart, LineChart, RadarChart, RadialBarChart), appels API via un service dédié et documentation complète.",
-    image: "/images/hero-banner-sportsee.png",
+    image: "/images/hero-banner-sportsee.webp",
     tags: ["React", "Recharts", "Axios", "JavaScript", "JSDoc", "Node.js"],
     github: "https://github.com/ByFrimouss/Sportsee-dashboard",
     live: null,
@@ -575,13 +575,13 @@ export const projects = [
       ],
 
       video: "/videos/prise-en-main-de-lapp-sportsee.mp4",
-      videoPoster: "/images/prise-en-main-sportsee-poster.png",
+      videoPoster: "/images/prise-en-main-sportsee-poster.webp",
       images: [
-        "/images/hero-banner-sportsee.png",
-        "/images/recharts-sportsee.png",
-        "/images/organisation-fichier-sportsee.png",
-        "/images/jsdocs-import-sportsee.png",
-        "/images/tooltips-sportsee.png",
+        "/images/hero-banner-sportsee.webp",
+        "/images/recharts-sportsee.webp",
+        "/images/organisation-fichier-sportsee.webp",
+        "/images/jsdocs-import-sportsee.webp",
+        "/images/tooltips-sportsee.webp",
       ],
     },
   },
@@ -593,7 +593,7 @@ export const projects = [
     subtitle: "UX · Figma · User Stories · Kanban · Cas d'usage",
     description:
       "Cadrage complet d'une application de soutien scolaire : diagrammes de cas d'usage, user stories, maquettes Figma desktop et mobile, et tableau Kanban pour une association mettant en relation élèves et tuteurs bénévoles.",
-    image: "/images/hero-banner-learn@home.png",
+    image: "/images/hero-banner-learn@home.webp",
     tags: ["Figma", "UX Design", "Agile", "Kanban", "User Stories"],
     github: null,
     live: null,
@@ -691,14 +691,14 @@ export const projects = [
       ],
 
       video: "/videos/prise-en-main-de-lapp-learn@home.mp4",
-      videoPoster: "/images/prise-en-main-learn@home-poster.png",
+      videoPoster: "/images/prise-en-main-learn@home-poster.webp",
       images: [
-        "/images/hero-banner-learn@home.png",
-        "/images/creation-compte-learn@home.png",
-        "/images/chat-learn@home.png",
-        "/images/maquette-learn@home.png",
-        "/images/prototypage-learn@home.png",
-        "/images/version-mobile-learn@home.png",
+        "/images/hero-banner-learn@home.webp",
+        "/images/creation-compte-learn@home.webp",
+        "/images/chat-learn@home.webp",
+        "/images/maquette-learn@home.webp",
+        "/images/prototypage-learn@home.webp",
+        "/images/version-mobile-learn@home.webp",
       ],
     },
   },
@@ -710,7 +710,7 @@ export const projects = [
     subtitle: "JavaScript · Jest · Chrome Debugger · Tests E2E",
     description:
       "Débogage et mise en place de tests unitaires, d'intégration et E2E sur une application SaaS RH de gestion de notes de frais, avec un objectif de couverture de code à 80%.",
-    image: "/images/hero-banner-billed.png",
+    image: "/images/hero-banner-billed.webp",
     tags: [
       "JavaScript",
       "Jest",
@@ -837,16 +837,16 @@ export const projects = [
       ],
 
       images: [
-        "/images/hero-banner-billed.png",
-        "/images/tableau-bord-admin-billed.png",
-        "/images/ticket-attente-admin-billed.png",
-        "/images/justificatif-admin-billed.png",
-        "/images/tableau-bord-employee-billed.png",
-        "/images/note-de-frais-employee-billed.png",
-        "/images/choisir-fichier-employee-billed.png",
-        "/images/erreur-jsbench-billed.png",
-        "/images/resolution-probleme-jsbench-billed.png",
-        "/images/chrome-debugger-employee-billed.png",
+        "/images/hero-banner-billed.webp",
+        "/images/tableau-bord-admin-billed.webp",
+        "/images/ticket-attente-admin-billed.webp",
+        "/images/justificatif-admin-billed.webp",
+        "/images/tableau-bord-employee-billed.webp",
+        "/images/note-de-frais-employee-billed.webp",
+        "/images/choisir-fichier-employee-billed.webp",
+        "/images/erreur-jsbench-billed.webp",
+        "/images/resolution-probleme-jsbench-billed.webp",
+        "/images/chrome-debugger-employee-billed.webp",
       ],
     },
   },
@@ -858,7 +858,7 @@ export const projects = [
     subtitle: "JavaScript · Bootstrap · Git · Green Code",
     description:
       "Développement d'un moteur de recherche performant pour un site de recettes de cuisine : deux algorithmes comparés (boucles natives vs programmation fonctionnelle), fiche d'investigation et analyse des performances.",
-    image: "/images/hero-banner-lespetitsplats.png",
+    image: "/images/hero-banner-lespetitsplats.webp",
     tags: [
       "JavaScript",
       "Tailwind",
@@ -1005,10 +1005,10 @@ export const projects = [
       ],
 
       images: [
-        "/images/hero-banner-lespetitsplats.png",
-        "/images/recherche-3-caractere-lespetitsplats.png",
-        "/images/carte-recette-lespetitsplats.png",
-        "/images/algorigramme-barre-recherche-lespetitsplats.drawio.png",
+        "/images/hero-banner-lespetitsplats.webp",
+        "/images/recherche-3-caractere-lespetitsplats.webp",
+        "/images/carte-recette-lespetitsplats.webp",
+        "/images/algorigramme-barre-recherche-lespetitsplats.drawio.webp",
       ],
     },
   },
@@ -1020,7 +1020,7 @@ export const projects = [
     subtitle: "HTML · CSS · Sass · Git · GitHub Pages",
     description:
       "Intégration mobile-first d'un site de restauration gastronomique parisien avec animations CSS avancées, loader, effets hover et approche Sass structurée.",
-    image: "/images/hero-banner-ohmyfood.png",
+    image: "/images/hero-banner-ohmyfood.webp",
     tags: ["HTML", "CSS", "Sass", "Git", "GitHub Pages", "Mobile First"],
     live: "https://byfrimouss.github.io/ohmyfood/",
     featured: true,
@@ -1143,13 +1143,13 @@ export const projects = [
       ],
 
       images: [
-        "/images/hero-banner-ohmyfood.png",
-        "/images/accueil-mobile-ohmyfood.png",
-        "/images/accueil-tablette-ohmyfood.png",
-        "/images/accueil-desktop-ohmyfood.png",
-        "/images/animation-chargement-ohmyfood.png",
-        "/images/animation-bouton-jaime-ohmyfood.png",
-        "/images/restaurant-seul-ohmyfood.png",
+        "/images/hero-banner-ohmyfood.webp",
+        "/images/accueil-mobile-ohmyfood.webp",
+        "/images/accueil-tablette-ohmyfood.webp",
+        "/images/accueil-desktop-ohmyfood.webp",
+        "/images/animation-chargement-ohmyfood.webp",
+        "/images/animation-bouton-jaime-ohmyfood.webp",
+        "/images/restaurant-seul-ohmyfood.webp",
       ],
     },
   },
@@ -1161,7 +1161,7 @@ export const projects = [
     subtitle: "WordPress · PHP · Ajax · ACF · CPT · SCF · jQuery",
     description:
       "Création d'un site WordPress entièrement personnalisé pour une photographe professionnelle : thème sur mesure, custom post types, filtres Ajax, lightbox et pagination infinie.",
-    image: "/images/hero-banner-mota.png",
+    image: "/images/hero-banner-mota.webp",
     tags: ["WordPress", "PHP", "JavaScript", "jQuery", "Ajax", "CSS", "GitHub"],
     github: "https://github.com/ByFrimouss/Nathalie_Mota",
     live: null,
@@ -1315,11 +1315,11 @@ export const projects = [
       ],
 
       images: [
-        "/images/hero-banner-mota.png",
-        "/images/filtres-lightbox-mota.png",
-        "/images/page-seule-mota.png",
-        "/images/photo-apparente-mota.png",
-        "/images/lightbox-mota.png",
+        "/images/hero-banner-mota.webp",
+        "/images/filtres-lightbox-mota.webp",
+        "/images/page-seule-mota.webp",
+        "/images/photo-apparente-mota.webp",
+        "/images/lightbox-mota.webp",
       ],
     },
   },
@@ -1331,7 +1331,7 @@ export const projects = [
     subtitle: "WordPress · PHP · JavaScript · Elementor",
     description:
       "Débogage en urgence du site d'une PME médicale : restauration de l'accès, correction de 5 bugs critiques, rédaction d'un cahier de recette et documentation sur les tests unitaires et fonctionnels.",
-    image: "/images/hero-banner-medit.png",
+    image: "/images/hero-banner-medit.webp",
     tags: ["WordPress", "PHP", "JavaScript", "Elementor", "CSS", "PHPMyAdmin"],
     github: "https://github.com/ByFrimouss/Med_it",
     live: null,
@@ -1462,9 +1462,9 @@ export const projects = [
       ],
 
       images: [
-        "/images/hero-banner-medit.png",
-        "/images/modale-medit.png",
-        "/images/maps-medit.png",
+        "/images/hero-banner-medit.webp",
+        "/images/modale-medit.webp",
+        "/images/maps-medit.webp",
       ],
     },
   },
@@ -1476,7 +1476,7 @@ export const projects = [
     subtitle: "WordPress · SEOPress · Lighthouse",
     description:
       "Optimisation des performances, du SEO et de l'accessibilité d'un site WordPress de mode luxe seconde main.",
-    image: "/images/hero-banner-chic-dressing.png",
+    image: "/images/hero-banner-chic-dressing.webp",
     tags: ["WordPress", "SEOPress", "Lighthouse", "PHP", "CSS"],
     github: null,
     live: null,
@@ -1605,11 +1605,11 @@ export const projects = [
       ],
 
       images: [
-        "/images/hero-banner-chic-dressing.png",
-        "/images/nouveautes-chic-dressing.png",
-        "/images/page-detail-chic-dressing.png",
-        "/images/ligthouse-avant.png",
-        "/images/ligthouse-apres.png",
+        "/images/hero-banner-chic-dressing.webp",
+        "/images/nouveautes-chic-dressing.webp",
+        "/images/page-detail-chic-dressing.webp",
+        "/images/ligthouse-avant.webp",
+        "/images/ligthouse-apres.webp",
       ],
     },
   },
@@ -1621,7 +1621,7 @@ export const projects = [
     subtitle: "WordPress · JavaScript · CSS · Sass · SwiperJS",
     description:
       "Dynamisation du site d'un studio d'animation nominé aux Oscars : vidéo hero, carrousel, parallaxe, menu burger et animations CSS avancées.",
-    image: "/images/hero-banner-koukaki.png",
+    image: "/images/hero-banner-koukaki.webp",
     tags: [
       "WordPress",
       "JavaScript",
@@ -1753,10 +1753,10 @@ export const projects = [
       ],
 
       images: [
-        "/images/hero-banner-koukaki.png",
-        "/images/personnages-koukaki.png",
-        "/images/animation-menu.png",
-        "/images/Koukaki.png",
+        "/images/hero-banner-koukaki.webp",
+        "/images/personnages-koukaki.webp",
+        "/images/animation-menu.webp",
+        "/images/Koukaki.webp",
       ],
     },
   },

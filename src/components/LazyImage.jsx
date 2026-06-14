@@ -6,7 +6,7 @@
 // puis fait apparaître l'image en fondu.
 //
 // USAGE :
-//   <LazyImage src="/images/projet.jpg" alt="Mon projet" />
+//   <LazyImage src="/images/projet.webp" alt="Mon projet" />
 //   <LazyImage src={url} alt="Photo" className="my-class" aspectRatio="16/9" />
 // ============================================================
 
