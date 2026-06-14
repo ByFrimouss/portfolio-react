@@ -202,7 +202,7 @@ export default function HeroSlider() {
       {/* PHOTO PARALLAX */}
       <div className="hero__visual">
         <motion.img
-          src="/images/stephanie-reduit.png"
+          src="/images/stephanie-reduit.jpg"
           alt="Stéphanie Coupama"
           className="hero__photo"
           fetchpriority="high"
