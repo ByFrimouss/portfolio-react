@@ -7,10 +7,10 @@ export const projects = [
   {
     id: 12,
     slug: "portfolio-react",
-    title: "Portfolio — Fri'MouSs",
+    title: "Portfolio — FriMouSs",
     subtitle: "React 19 · Framer Motion · Redux · Vite · SASS",
     description:
-      "Portfolio personnel développé from scratch avec React 19 : animations avancées avec Framer Motion, curseur personnalisé, parallaxe, transitions de routes, mode clair/sombre et présentation complète de mes projets.",
+      "Portfolio personnel développé from scratch avec React 19 : animations avancées avec Framer Motion, curseur personnalisé, parallaxe, transitions de routes, mode clair/sombre, optimisation Lighthouse 98/100/100/100 et présentation complète de mes projets.",
     image: "/images/project-portfolio.webp",
     tags: [
       "React",
@@ -20,15 +20,15 @@ export const projects = [
       "Vite",
       "SwiperJS",
     ],
-    github: null,
-    live: null,
+    github: "https://github.com/ByFrimouss/portfolio-react",
+    live: "null",
     featured: true,
     year: 2026,
     color: "#7c6bff",
 
     details: {
       context:
-        "Projet personnel de fin de formation pour présenter mon parcours, mes compétences et mes réalisations. L'objectif était de créer un portfolio moderne, animé et performant from scratch avec React, sans template ni Page Builder, en mettant en valeur mes compétences front-end à travers le site lui-même.",
+        "Projet personnel de fin de formation pour présenter mon parcours, mes compétences et mes réalisations. L'objectif était de créer un portfolio moderne, animé et performant from scratch avec React, sans template ni Page Builder, en mettant en valeur mes compétences front-end à travers le site lui-même. Le site a été déployé sur Vercel et optimisé pour atteindre un score Lighthouse de 98/100/100/100.",
 
       objectives: [
         "Créer un portfolio 100% React avec une expérience utilisateur soignée",
@@ -36,6 +36,7 @@ export const projects = [
         "Mettre en place un curseur personnalisé et des effets de parallaxe",
         "Gérer le mode clair/sombre avec persistance via Redux",
         "Présenter chaque projet avec une page de détail complète et dynamique",
+        "Atteindre un score Lighthouse optimal en performance, accessibilité, SEO et bonnes pratiques",
       ],
 
       work: [
@@ -52,6 +53,11 @@ export const projects = [
         "Système de mode clair/sombre géré avec Redux Toolkit",
         "Pages de détail projet dynamiques avec lightbox, zoom et galerie",
         "Section outils par projet avec ce qu'on peut faire avec chaque outil",
+        "Déploiement sur Vercel avec configuration des headers de sécurité",
+        "Hébergement des Google Fonts en local (Syne, DM Sans, JetBrains Mono) en Variable Fonts",
+        "Optimisation des images avec Sharp : conversion en WebP et redimensionnement à 1200px",
+        "Correction du contraste texte/fond dans le footer pour l'accessibilité",
+        "Script d'optimisation automatique des images npm run optimize",
       ],
 
       problems: [
@@ -60,6 +66,10 @@ export const projects = [
         "Transitions de routes fluides sans flash ni saut de scroll",
         "Mode clair/sombre à appliquer globalement sans re-render excessif",
         "Pages de détail projet riches en contenu à rendre dynamiques depuis un seul composant",
+        "Google Fonts bloquant le rendu initial avec 430ms de latence",
+        "Images très lourdes (profil.jpg à 8,4 MB) impactant le LCP",
+        "Contraste insuffisant sur le footer (ratio 3.2:1 au lieu de 4.5:1 minimum)",
+        "Fichier useImageLazy.js non pushé sur GitHub causant un échec de build Vercel",
       ],
 
       solutions: [
@@ -68,10 +78,13 @@ export const projects = [
         "Gestion du thème dans Redux Toolkit avec persistance dans le localStorage",
         "Composant ProjectDetail unique et dynamique alimenté par le fichier projects.js",
         "SASS structuré en fichiers partiels pour garder un code maintenable",
+        "Hébergement des Variable Fonts en local pour supprimer la dépendance Google Fonts",
+        "Script Sharp pour convertir toutes les images en WebP avec correction EXIF automatique",
+        "Correction des couleurs du footer (#4d82ff et #8ab0d8) pour atteindre un ratio 4.6:1",
       ],
 
       result:
-        "Portfolio moderne, fluide et performant présentant l'ensemble de mes projets de formation. Expérience utilisateur soignée avec animations cohérentes, mode clair/sombre et navigation intuitive entre les projets.",
+        "Portfolio moderne, fluide et performant déployé sur Vercel avec un score Lighthouse parfait de 100/100/100/100 en navigation privée...",
 
       learnings: [
         "Maîtrise de Framer Motion : variants, AnimatePresence, useScroll, useTransform",
@@ -80,10 +93,14 @@ export const projects = [
         "Architecture Redux Toolkit pour la gestion du thème global",
         "Structuration d'un projet React complexe avec SASS et composants réutilisables",
         "Conception d'un système de données projets extensible (projects.js)",
+        "Déploiement et configuration d'une application React sur Vercel",
+        "Optimisation Lighthouse : fonts locales, images WebP, contraste accessibilité",
+        "Script Node.js avec Sharp pour automatiser l'optimisation des images",
+        "Débogage de problèmes de build Vercel (casse de fichiers, modules manquants)",
       ],
 
       advice:
-        "Un portfolio est le projet où tu as le plus de liberté — profites-en pour pousser les animations et l'UX au maximum. C'est souvent la première chose qu'un recruteur voit, et le site lui-même est déjà une démonstration de tes compétences.",
+        "Un portfolio est le projet où tu as le plus de liberté — profites-en pour pousser les animations et l'UX au maximum. C'est souvent la première chose qu'un recruteur voit, et le site lui-même est déjà une démonstration de tes compétences. Mesure les performances avec Lighthouse dès le début — il est bien plus facile d'optimiser au fur et à mesure que de tout corriger à la fin.",
 
       tools: [
         {
@@ -147,6 +164,33 @@ export const projects = [
             "Gérer la navigation entre les 5 pages du portfolio",
             "Combiner avec Framer Motion pour des transitions de routes animées",
             "Générer les pages de détail projet dynamiquement depuis le slug",
+          ],
+        },
+        {
+          name: "Sharp + script WebP",
+          icon: "🖼️",
+          what: [
+            "Convertir automatiquement toutes les images en WebP",
+            "Redimensionner à 1200px max et corriger l'orientation EXIF",
+            "Réduire le poids des images jusqu'à -80% sans perte de qualité visible",
+          ],
+        },
+        {
+          name: "Variable Fonts locales",
+          icon: "🔤",
+          what: [
+            "Héberger Syne, DM Sans et JetBrains Mono directement dans le projet",
+            "Supprimer la dépendance Google Fonts et gagner 230ms sur le LCP",
+            "Utiliser un seul fichier par famille pour tous les weights grâce aux Variable Fonts",
+          ],
+        },
+        {
+          name: "Vercel",
+          icon: "🚀",
+          what: [
+            "Déployer automatiquement le portfolio à chaque push sur GitHub",
+            "Configurer les headers de sécurité (Permissions-Policy, CSP) via vite.config.js",
+            "Obtenir une URL publique partageable pour les recruteurs et clients",
           ],
         },
       ],
