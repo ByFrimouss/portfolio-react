@@ -195,7 +195,7 @@ export const projects = [
         },
       ],
 
-      images: [],
+      images: ["/images/audit-ligthouse-100.webp"],
     },
   },
 
