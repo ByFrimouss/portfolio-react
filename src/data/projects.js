@@ -24,7 +24,7 @@ export const projects = [
     live: "null",
     featured: true,
     year: 2026,
-    color: "#7c6bff",
+    color: "#4d82ff",
 
     details: {
       context:
@@ -1679,7 +1679,7 @@ export const projects = [
     live: null,
     featured: true,
     year: 2024,
-    color: "#e8445a",
+    color: "#ff5d00",
 
     details: {
       context:

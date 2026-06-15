@@ -23,7 +23,7 @@ const TIMELINE = [
     title: "Développeuse d'Applications Logiciel — React JavaScript",
     org: "Formation 12 mois — Diplôme obtenu niveau 6 ✓",
     desc: "14 projets validés. Stack complet : React, Redux Toolkit, React Router, Framer Motion, SCSS, Vite, Axios.",
-    color: "#7c6bff",
+    color: "#4d82ff",
     badge: "✓ Diplômée",
   },
   {
@@ -55,7 +55,7 @@ const TIMELINE = [
     title: "E-Commerce",
     org: "Formation 2 mois ½, formation d'adaptation",
     desc: "Création et gestion de boutiques en ligne, stratégie de vente digitale, logistique e-commerce.",
-    color: "#7c6bff",
+    color: "#4d82ff",
     badge: null,
   },
   {
@@ -79,7 +79,7 @@ const TIMELINE = [
     title: "Création d'Entreprise",
     org: "Formation 4 mois",
     desc: "Business plan, statuts juridiques, comptabilité de base, stratégie commerciale et marketing.",
-    color: "#7c6bff",
+    color: "#4d82ff",
     badge: "🚀 Démarrage du virage digital",
   },
   {
@@ -102,9 +102,9 @@ const TIMELINE = [
 
 // Formations courtes résumées
 const SKILLS_OVERVIEW = [
-  { label: "React JS", level: 85, color: "#7c6bff" },
+  { label: "React JS", level: 85, color: "#4d82ff" },
   { label: "WordPress", level: 90, color: "#00f5d4" },
-  { label: "SCSS / CSS", level: 82, color: "#7c6bff" },
+  { label: "SCSS / CSS", level: 82, color: "#4d82ff" },
   { label: "Redux", level: 75, color: "#00f5d4" },
   { label: "Graphisme Web", level: 78, color: "#ff6b6b" },
   { label: "Community Mgmt", level: 72, color: "#ff6b6b" },
@@ -138,7 +138,7 @@ export default function About() {
                 <br />
                 <span
                   style={{
-                    color: "#7c6bff",
+                    color: "#4d82ff",
                     fontSize: "0.6em",
                     fontWeight: 400,
                   }}
@@ -347,7 +347,7 @@ export default function About() {
           font-family: 'Syne', sans-serif;
           font-size: 2.5rem;
           font-weight: 900;
-          color: #7c6bff;
+          color: #4d82ff;
           line-height: 1;
         }
         .about-stat__label {

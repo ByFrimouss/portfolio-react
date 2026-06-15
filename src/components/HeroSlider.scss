@@ -27,12 +27,11 @@
     background:
       radial-gradient(
         ellipse 80% 60% at 20% 50%,
-        rgba(124, 107, 255, 0.15) 0%,
-        transparent 60%
+        rgba(77, 130, 255, 0.15) 0% transparent 60%
       ),
       radial-gradient(
         ellipse 60% 40% at 80% 80%,
-        rgba(0, 245, 212, 0.08) 0%,
+        rgba(0, 229, 255, 0.08) 0%,
         transparent 50%
       );
   }
@@ -168,7 +167,7 @@
   &__cursor {
     font-family: $font-mono;
     font-size: 1.2rem;
-    color: $color-primary;
+    color: $color-secondary;
     line-height: 1;
   }
 
@@ -212,13 +211,13 @@
   &__scroll-line {
     width: 1px;
     height: 60px;
-    background: linear-gradient(to bottom, $color-primary, transparent);
+    background: linear-gradient(to bottom, $color-secondary, transparent);
     transform-origin: top;
   }
 
   &__visual {
     position: absolute;
-    right: 5%;
+    right: 2%;
     bottom: 0;
     pointer-events: none;
   }
@@ -247,7 +246,7 @@
   }
 
   &__photo {
-    height: 85vh;
+    height: 100vh;
     width: auto;
     object-fit: cover;
     object-position: center top;
@@ -348,9 +347,9 @@
 @keyframes badgePulse {
   0%,
   100% {
-    box-shadow: 0 0 0 0 rgba(0, 245, 212, 0.4);
+    box-shadow: 0 0 0 0 rgba(0, 229, 255, 0.4); // $color-accent
   }
   50% {
-    box-shadow: 0 0 0 6px rgba(0, 245, 212, 0);
+    box-shadow: 0 0 0 6px rgba(0, 229, 255, 0);
   }
 }

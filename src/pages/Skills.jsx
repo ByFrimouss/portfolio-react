@@ -88,7 +88,13 @@ const SKILLS = {
   ],
 };
 
-const ACCENT_COLORS = ["#7c6bff", "#00f5d4", "#ff6b6b", "#f4a325", "#7c3aed"];
+const ACCENT_COLORS = [
+  "#4d82ff", // bleu principal
+  "#ff4d9e", // rose logo
+  "#00e5ff", // cyan électrique
+  "#7ba7ff", // bleu clair
+  "#ff80b5", // rose pastel
+];
 
 export default function Skills() {
   return (

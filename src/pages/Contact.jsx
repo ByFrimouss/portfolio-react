@@ -222,7 +222,7 @@ export default function Contact() {
           width: 100%;
         }
         .form-input:focus {
-          border-color: #7c6bff;
+          border-color: #4d82ff;
           box-shadow: 0 0 0 3px rgba(124,107,255,0.1);
         }
         .form-input::placeholder { color: #3a3a50; }

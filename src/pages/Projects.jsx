@@ -105,8 +105,8 @@ export default function Projects() {
         .projects-filter-btn:hover,
         .projects-filter-btn.active {
           background: rgba(124,107,255,0.15);
-          border-color: #7c6bff;
-          color: #7c6bff;
+          border-color: #4d82ff;
+          color: #4d82ff;
         }
         .projects-grid {
           display: grid;
