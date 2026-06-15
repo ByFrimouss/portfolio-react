@@ -84,7 +84,7 @@ export const projects = [
       ],
 
       result:
-        "Portfolio moderne, fluide et performant déployé sur Vercel avec un score Lighthouse parfait de 100/100/100/100 en navigation privée...",
+        "Portfolio moderne, fluide et performant déployé sur Vercel avec un score Lighthouse parfait de 100/100/100/100",
 
       learnings: [
         "Maîtrise de Framer Motion : variants, AnimatePresence, useScroll, useTransform",
