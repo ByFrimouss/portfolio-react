@@ -32,7 +32,7 @@ export default function Footer() {
             <span className="footer__logo">Gr@ph'Web</span>
             <span className="footer__pseudo">By Fri'MouSs</span>
             <p className="footer__tagline">
-              Développeuse React & WordPress · La Réunion 🌴
+              Développeuse React & WordPress · La Réunion
             </p>
           </div>
 
