@@ -1,0 +1,47 @@
+@use "../styles/variables" as *;
+
+.privacy {
+  &__date {
+    font-family: $font-mono;
+    font-size: $fs-small;
+    color: $color-text-muted;
+    margin-bottom: $spacing-xl;
+  }
+
+  &__block {
+    margin-bottom: $spacing-lg;
+    padding-bottom: $spacing-lg;
+    border-bottom: 1px solid $color-border;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    h2 {
+      font-size: $fs-h3;
+      color: $color-primary;
+      margin-bottom: $spacing-md;
+    }
+
+    p {
+      color: $color-text-muted;
+      line-height: 1.7;
+      margin-bottom: $spacing-sm;
+    }
+
+    ul {
+      padding-left: 1.5rem;
+      color: $color-text-muted;
+      line-height: 2;
+    }
+
+    a {
+      color: $color-primary;
+      text-decoration: underline;
+
+      &:hover {
+        color: $color-secondary;
+      }
+    }
+  }
+}

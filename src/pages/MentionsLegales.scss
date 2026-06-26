@@ -1,0 +1,92 @@
+@use "../styles/variables" as *;
+
+.mentions {
+  padding: 8rem 0 4rem;
+  min-height: 100vh;
+
+  &__title {
+    font-family: $font-display;
+    font-size: $fs-h1;
+    font-weight: $fw-black;
+    color: $color-text-light;
+    margin-bottom: 3rem;
+    background: linear-gradient(
+      135deg,
+      $color-text-light 30%,
+      $color-primary 100%
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  &__content {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+  }
+
+  &__block {
+    background: $color-surface;
+    border: 1px solid $color-border;
+    border-radius: $radius-lg;
+    padding: 2rem;
+
+    h2 {
+      font-family: $font-display;
+      font-size: $fs-h3;
+      font-weight: $fw-bold;
+      color: $color-primary;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: $fs-body;
+      color: $color-text-muted;
+      line-height: 1.8;
+      margin-bottom: 1rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+
+    ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+
+      li {
+        font-size: $fs-body;
+        color: $color-text-muted;
+        line-height: 1.6;
+
+        strong {
+          color: $color-text;
+        }
+      }
+    }
+
+    a {
+      color: $color-primary;
+      text-decoration: none;
+      transition: color $transition-fast;
+
+      &:hover {
+        color: $color-secondary;
+      }
+    }
+  }
+
+  &__date {
+    font-family: $font-mono;
+    font-size: $fs-small;
+    color: $color-text-muted;
+    text-align: center;
+    padding-top: 1rem;
+    border-top: 1px solid $color-border;
+  }
+}

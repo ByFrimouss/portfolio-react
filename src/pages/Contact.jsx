@@ -1,16 +1,11 @@
 // ============================================================
 // Contact.jsx — Page de contact avec formulaire
-//
-//   1. style={{ position: 'relative' }} sur le motion.div wrapper
-//      → fix du warning Framer Motion useScroll/whileInView
-//   2. motion.form remplacé par un form natif + motion.div wrapper
-//      → motion.form peut causer des conflits avec onSubmit en React 19
-//   3. Le bouton disabled utilise aria-disabled pour l'accessibilité
-//   4. Cleanup : styles déplacés dans un bloc <style> organisé
 // ============================================================
 
 import { useState } from "react";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
+import "./Contact.scss";
 
 const pageVariants = {
   initial: { opacity: 0 },
@@ -18,7 +13,6 @@ const pageVariants = {
   exit: { opacity: 0, transition: { duration: 0.25 } },
 };
 
-// Champs générés dynamiquement pour éviter la répétition
 const FIELDS = [
   { id: "name", label: "Nom", type: "text", placeholder: "Jean Dupont" },
   {
@@ -31,23 +25,38 @@ const FIELDS = [
     id: "subject",
     label: "Sujet",
     type: "text",
-    placeholder: "Projet web, collab...",
+    placeholder: "Projet web, collaboration, recrutement...",
   },
+];
+
+const REQUEST_TYPES = [
+  "Création de site WordPress",
+  "Développement React",
+  "Refonte de site",
+  "Recrutement / Opportunité",
+  "Collaboration",
+  "Autre",
 ];
 
 export default function Contact() {
   const [form, setForm] = useState({
     name: "",
     email: "",
+    type: "",
     subject: "",
     message: "",
+    consent: false,
+    _gotcha: "",
   });
 
-  // 'idle' | 'sending' | 'success' | 'error'
   const [status, setStatus] = useState("idle");
 
   const handleChange = (e) => {
-    setForm((prev) => ({ ...prev, [e.target.id]: e.target.value }));
+    const { id, value, type, checked } = e.target;
+    setForm((prev) => ({
+      ...prev,
+      [id]: type === "checkbox" ? checked : value,
+    }));
   };
 
   const handleSubmit = async (e) => {
@@ -63,7 +72,15 @@ export default function Contact() {
       if (!res.ok) throw new Error("Formspree error");
 
       setStatus("success");
-      setForm({ name: "", email: "", subject: "", message: "" });
+      setForm({
+        name: "",
+        email: "",
+        type: "",
+        subject: "",
+        message: "",
+        consent: false,
+        _gotcha: "",
+      });
     } catch {
       setStatus("error");
     }
@@ -86,8 +103,8 @@ export default function Contact() {
             <span className="section-label">// Contact</span>
             <h1 className="section-title">Parlons de votre projet</h1>
             <p className="contact-intro">
-              Disponible pour des missions freelance et collaborations. Réponse
-              sous 24h.
+              Disponible pour des missions freelance et opportunités CDI/CDD.
+              Réponse sous 24h.
             </p>
 
             <motion.div
@@ -115,7 +132,29 @@ export default function Contact() {
                   </div>
                 ))}
 
-                {/* Textarea */}
+                {/* Type de demande */}
+                <div className="form-group">
+                  <label htmlFor="type" className="form-label">
+                    Type de demande
+                  </label>
+                  <select
+                    id="type"
+                    value={form.type}
+                    onChange={handleChange}
+                    required
+                    className="form-input form-select"
+                    disabled={status === "sending"}
+                  >
+                    <option value="">Sélectionnez une option...</option>
+                    {REQUEST_TYPES.map((type) => (
+                      <option key={type} value={type}>
+                        {type}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                {/* Message */}
                 <div className="form-group">
                   <label htmlFor="message" className="form-label">
                     Message
@@ -124,7 +163,7 @@ export default function Contact() {
                     id="message"
                     value={form.message}
                     onChange={handleChange}
-                    placeholder="Décrivez votre projet, vos besoins..."
+                    placeholder="Décrivez votre projet, vos besoins, ou votre opportunité..."
                     required
                     rows={6}
                     className="form-input form-textarea"
@@ -132,11 +171,46 @@ export default function Contact() {
                   />
                 </div>
 
+                {/* RGPD */}
+                <p className="form-rgpd">
+                  Les informations recueillies via ce formulaire sont utilisées
+                  uniquement pour répondre à votre demande de contact.
+                </p>
+
+                {/* Consentement */}
+                <div className="form-group form-consent">
+                  <label className="form-consent-label">
+                    <input
+                      id="consent"
+                      type="checkbox"
+                      checked={form.consent}
+                      onChange={handleChange}
+                      required
+                      disabled={status === "sending"}
+                    />
+                    <span>
+                      J'accepte que mes données soient utilisées conformément à
+                      la politique de confidentialité.
+                    </span>
+                  </label>
+                </div>
+
+                {/* Honeypot anti-spam */}
+                <input
+                  type="text"
+                  id="_gotcha"
+                  value={form._gotcha}
+                  onChange={handleChange}
+                  style={{ display: "none" }}
+                  tabIndex={-1}
+                  autoComplete="off"
+                />
+
                 {/* Submit */}
                 <motion.button
                   type="submit"
                   className={`btn btn--primary contact-submit ${status === "sending" ? "is-loading" : ""}`}
-                  disabled={status === "sending"}
+                  disabled={status === "sending" || !form.consent}
                   aria-disabled={status === "sending"}
                   whileHover={status !== "sending" ? { scale: 1.02 } : {}}
                   whileTap={status !== "sending" ? { scale: 0.98 } : {}}
@@ -159,7 +233,7 @@ export default function Contact() {
                     animate={{ opacity: 1, y: 0 }}
                     role="alert"
                   >
-                    ✓ Message envoyé avec succès !
+                    ✓ Message envoyé avec succès ! Je vous réponds sous 24h.
                   </motion.p>
                 )}
                 {status === "error" && (
@@ -178,109 +252,6 @@ export default function Contact() {
           </div>
         </div>
       </section>
-
-      <style>{`
-        /* --- Wrapper --- */
-        .contact-wrapper {
-          max-width: 640px;
-          margin: 0 auto;
-        }
-        .contact-intro {
-          color: #6b6b82;
-          margin-bottom: 2.5rem;
-          line-height: 1.7;
-        }
-
-        /* --- Formulaire --- */
-        .contact-form {
-          display: flex;
-          flex-direction: column;
-          gap: 1.25rem;
-        }
-        .form-group {
-          display: flex;
-          flex-direction: column;
-          gap: 0.4rem;
-        }
-        .form-label {
-          font-family: monospace;
-          font-size: 0.75rem;
-          letter-spacing: 0.1em;
-          text-transform: uppercase;
-          color: #6b6b82;
-        }
-        .form-input {
-          background: #16161f;
-          border: 1px solid rgba(255,255,255,0.07);
-          border-radius: 8px;
-          padding: 0.75rem 1rem;
-          color: #e8e8f0;
-          font-family: inherit;
-          font-size: 1rem;
-          transition: border-color 0.2s, box-shadow 0.2s, opacity 0.2s;
-          outline: none;
-          width: 100%;
-        }
-        .form-input:focus {
-          border-color: #4d82ff;
-          box-shadow: 0 0 0 3px rgba(124,107,255,0.1);
-        }
-        .form-input::placeholder { color: #3a3a50; }
-        /* ✅ FIX : style visuel quand les champs sont désactivés */
-        .form-input:disabled {
-          opacity: 0.5;
-          cursor: not-allowed;
-        }
-        .form-textarea {
-          resize: vertical;
-          min-height: 140px;
-        }
-
-        /* --- Bouton submit --- */
-        .contact-submit {
-          align-self: flex-start;
-          display: inline-flex;
-          align-items: center;
-          gap: 0.6rem;
-        }
-        .contact-submit:disabled {
-          opacity: 0.7;
-          cursor: not-allowed;
-        }
-
-        /* Spinner CSS (pas de lib externe) */
-        .contact-submit__spinner {
-          width: 14px;
-          height: 14px;
-          border: 2px solid rgba(255,255,255,0.3);
-          border-top-color: #fff;
-          border-radius: 50%;
-          animation: spin 0.7s linear infinite;
-          flex-shrink: 0;
-        }
-        @keyframes spin {
-          to { transform: rotate(360deg); }
-        }
-
-        /* --- Feedback messages --- */
-        .contact-feedback {
-          font-family: monospace;
-          font-size: 0.875rem;
-          padding: 0.75rem 1rem;
-          border-radius: 8px;
-          margin-top: 0.25rem;
-        }
-        .contact-feedback--success {
-          color: #00f5d4;
-          background: rgba(0,245,212,0.08);
-          border: 1px solid rgba(0,245,212,0.2);
-        }
-        .contact-feedback--error {
-          color: #ff6b6b;
-          background: rgba(255,107,107,0.08);
-          border: 1px solid rgba(255,107,107,0.2);
-        }
-      `}</style>
     </motion.div>
   );
 }

@@ -161,13 +161,17 @@ export default function About() {
               </p>
 
               <p className="about-intro__body">
-                Basée à La Réunion 🌴, je suis disponible pour des missions
+                Basée à La Réunion, je suis disponible pour des missions
                 freelance, du remote ou des opportunités locales. Je crée des
                 interfaces web modernes, accessibles et soignées.
               </p>
 
               {/* Stats */}
               <div className="about-stats">
+                <div className="about-stat">
+                  <span className="about-stat__number">2</span>
+                  <span className="about-stat__label">Clients satisfaits</span>
+                </div>
                 <div className="about-stat">
                   <span className="about-stat__number">27</span>
                   <span className="about-stat__label">Projets validés</span>

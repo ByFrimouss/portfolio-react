@@ -1,0 +1,165 @@
+@use "../styles/variables" as *;
+
+.contact-wrapper {
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.contact-intro {
+  color: $color-text-muted;
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
+}
+
+// --- Formulaire ---
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.form-label {
+  font-family: $font-mono;
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: $color-text-muted;
+}
+
+.form-input {
+  background: $color-surface;
+  border: 1px solid $color-border;
+  border-radius: $radius-md;
+  padding: 0.75rem 1rem;
+  color: $color-text;
+  font-family: $font-body;
+  font-size: $fs-body;
+  transition:
+    border-color $transition-base,
+    box-shadow $transition-base,
+    opacity $transition-base;
+  outline: none;
+  width: 100%;
+
+  &:focus {
+    border-color: $color-primary;
+    box-shadow: 0 0 0 3px rgba(77, 130, 255, 0.1);
+  }
+
+  &::placeholder {
+    color: rgba(255, 255, 255, 0.15);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.form-select {
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%238ab0d8' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+
+  option {
+    background: $color-surface;
+    color: $color-text;
+  }
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 140px;
+}
+
+// --- RGPD ---
+.form-rgpd {
+  font-size: $fs-small;
+  color: $color-text-muted;
+  line-height: 1.6;
+
+  &__link {
+    color: $color-primary;
+    text-decoration: underline;
+    transition: color $transition-fast;
+
+    &:hover {
+      color: $color-secondary;
+    }
+  }
+}
+
+.form-consent-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  font-size: $fs-small;
+  color: $color-text-muted;
+  line-height: 1.5;
+  cursor: pointer;
+
+  input {
+    margin-top: 0.25rem;
+    accent-color: $color-primary;
+    cursor: pointer;
+  }
+}
+
+// --- Bouton submit ---
+.contact-submit {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.contact-submit__spinner {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+// --- Feedback ---
+.contact-feedback {
+  font-family: $font-mono;
+  font-size: $fs-small;
+  padding: 0.75rem 1rem;
+  border-radius: $radius-md;
+  margin-top: 0.25rem;
+
+  &--success {
+    color: $color-accent;
+    background: rgba(0, 229, 255, 0.08);
+    border: 1px solid rgba(0, 229, 255, 0.2);
+  }
+
+  &--error {
+    color: #ff6b6b;
+    background: rgba(255, 107, 107, 0.08);
+    border: 1px solid rgba(255, 107, 107, 0.2);
+  }
+}

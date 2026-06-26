@@ -11,7 +11,6 @@ const SOCIAL_LINKS = [
     label: "LinkedIn",
     href: "https://www.linkedin.com/in/st%C3%A9phanie-coupama/",
   },
-  // Ajoute ton vrai lien LinkedIn ici
 ];
 
 const NAV_LINKS = [
@@ -66,6 +65,12 @@ export default function Footer() {
           <p className="footer__copy">
             © {year} Stéphanie COUPAMA — By Fri'MouSs
           </p>
+          <Link to="/mentions-legales" className="footer__legal">
+            Mentions légales
+          </Link>
+          <Link to="/privacy-policy" className="footer__legal">
+            Politique de confidentialité
+          </Link>
           <p className="footer__made">Fait avec ❤️</p>
         </div>
       </div>
