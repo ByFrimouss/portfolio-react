@@ -61,7 +61,7 @@
   --color-surface: #0d1628;
   --color-border: rgba(106, 92, 255, 0.15);
 
-  --color-primary: #6a5cff;
+  --color-primary: #1c89ed;
   --color-secondary: #ff4d9e;
   --color-accent: #00e5ff;
 
@@ -88,7 +88,7 @@
   --color-surface: #ffffff;
   --color-border: rgba(106, 92, 255, 0.2);
 
-  --color-primary: #5146e8;
+  --color-primary: #1c89ed;
   --color-secondary: #e8307e;
   --color-accent: #0099cc;
 
@@ -180,7 +180,7 @@ button {
   font-size: $fs-small;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: var(--color-primary);
+  color: $color-primary;
   display: block;
   margin-bottom: $spacing-sm;
 }
