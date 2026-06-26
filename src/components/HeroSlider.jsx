@@ -86,7 +86,7 @@ export default function HeroSlider() {
           custom={0.1}
         >
           <span className="hero__badge-dot" />
-          By Fri'MouSs · La Réunion 🌴
+          By Fri'MouSs · La Réunion
         </motion.div>
 
         {/* Titre : prénom + nom animés lettre par lettre */}

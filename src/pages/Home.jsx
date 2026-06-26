@@ -227,7 +227,7 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
             >
-              Développeuse web basée à La Réunion 🌴, je crée des interfaces
+              Développeuse web basée à La Réunion, je crée des interfaces
               modernes avec une attention particulière aux détails, aux
               animations et aux performances.
             </motion.p>
