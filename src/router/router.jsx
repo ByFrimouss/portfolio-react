@@ -19,6 +19,7 @@ import Skills from "../pages/Skills";
 import Contact from "../pages/Contact";
 import MentionsLegales from "../pages/MentionsLegales";
 import PrivacyPolicy from "../pages/PrivacyPolicy";
+import NotFound from "../pages/NotFound";
 
 export default function Router() {
   // useLocation() retourne l'objet location actuel.
@@ -46,7 +47,7 @@ export default function Router() {
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
 
         {/* 404 — redirige vers Home */}
-        <Route path="*" element={<Home />} />
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </AnimatePresence>
   );

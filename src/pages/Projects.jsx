@@ -6,6 +6,7 @@ import { useState } from "react";
 import { motion } from "framer-motion";
 import ProjectCard from "../components/ProjectCard";
 import { projects } from "../data/projects";
+import "../pages/Projects.scss";
 
 // Tous les tags uniques extraits des projets
 const ALL_TAGS = ["Tous", ...new Set(projects.flatMap((p) => p.tags))];
@@ -80,40 +81,6 @@ export default function Projects() {
           </motion.div>
         </div>
       </section>
-
-      {/* Styles inline pour cette page */}
-      <style>{`
-        .projects-filters {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 0.5rem;
-          margin-bottom: 2.5rem;
-        }
-        .projects-filter-btn {
-          font-family: var(--font-mono, monospace);
-          font-size: 0.8rem;
-          letter-spacing: 0.08em;
-          text-transform: uppercase;
-          padding: 0.4rem 1rem;
-          border-radius: 9999px;
-          border: 1px solid rgba(255,255,255,0.07);
-          background: transparent;
-          color: #6b6b82;
-          cursor: pointer;
-          transition: all 0.2s ease;
-        }
-        .projects-filter-btn:hover,
-        .projects-filter-btn.active {
-          background: rgba(124,107,255,0.15);
-          border-color: #4d82ff;
-          color: #4d82ff;
-        }
-        .projects-grid {
-          display: grid;
-          grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-          gap: 1.5rem;
-        }
-      `}</style>
     </motion.div>
   );
 }

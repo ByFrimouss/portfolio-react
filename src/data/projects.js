@@ -21,10 +21,9 @@ export const projects = [
       "SwiperJS",
     ],
     github: "https://github.com/ByFrimouss/portfolio-react",
-    live: "null",
     featured: true,
     year: 2026,
-    color: "#4d82ff",
+    color: "#2682e2",
 
     details: {
       context:
@@ -213,7 +212,7 @@ export const projects = [
     live: null,
     featured: true,
     year: 2026,
-    color: "#f4a325",
+    color: "#f0a500",
 
     details: {
       context:
@@ -370,7 +369,7 @@ export const projects = [
     live: null,
     featured: true,
     year: 2026,
-    color: "#166534",
+    color: "#27b981",
 
     details: {
       context:
@@ -501,7 +500,7 @@ export const projects = [
     live: null,
     featured: true,
     year: 2025,
-    color: "#ef4444",
+    color: "#d3070a",
 
     details: {
       context:
@@ -643,7 +642,7 @@ export const projects = [
     live: null,
     featured: true,
     year: 2025,
-    color: "#7c3aed",
+    color: "#d93a50",
 
     details: {
       context:
@@ -766,7 +765,7 @@ export const projects = [
     live: null,
     featured: true,
     year: 2025,
-    color: "#2563eb",
+    color: "#0c5ae4",
 
     details: {
       context:
@@ -915,7 +914,7 @@ export const projects = [
     live: "https://byfrimouss.github.io/Les-petits-plats/",
     featured: true,
     year: 2025,
-    color: "#f4a325",
+    color: "#f8e344",
 
     details: {
       context:
@@ -1211,7 +1210,7 @@ export const projects = [
     live: null,
     featured: true,
     year: 2024,
-    color: "#b5651d",
+    color: "#d63730",
 
     details: {
       context:
@@ -1381,7 +1380,7 @@ export const projects = [
     live: null,
     featured: true,
     year: 2024,
-    color: "#0f6e56",
+    color: "#2277a7",
 
     details: {
       context:
@@ -1526,7 +1525,7 @@ export const projects = [
     live: null,
     featured: true,
     year: 2024,
-    color: "#21759b",
+    color: "#bc9c73",
 
     details: {
       context:

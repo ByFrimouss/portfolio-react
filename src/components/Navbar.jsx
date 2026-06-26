@@ -54,11 +54,15 @@ export default function Navbar() {
     <header className={`navbar ${scrolled ? "navbar--scrolled" : ""}`}>
       <div className="navbar__container">
         {/* Logo / Nom */}
-        <NavLink to="#" className="navbar__logo" onClick={closeMenu}>
+        <NavLink to="/" className="navbar__logo" onClick={closeMenu}>
+          <img
+            src="/images/graphweb_rose-transparent.png"
+            alt="Gr@ph'Web"
+            className="navbar__logo-img"
+          />
           <span className="navbar__logo-text">Gr@ph'Web</span>
           <span className="navbar__logo-dot" />
         </NavLink>
-
         {/* Navigation desktop */}
         <nav className={`navbar__nav ${menuOpen ? "navbar__nav--open" : ""}`}>
           <ul className="navbar__list">
