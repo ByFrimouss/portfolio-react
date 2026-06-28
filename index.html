@@ -4,12 +4,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!--
-      Permissions Policy en meta tag.
-      Edge lit ce header EN PLUS des headers HTTP de vite.config.js.
-      lazyload=()  → on gère le lazy loading nous-mêmes (LazyImage.jsx)
-      unload=()    → event déprécié, on ne l'utilise pas
-    -->
     <meta
       http-equiv="Permissions-Policy"
       content="unload=(), camera=(), microphone=(), geolocation=()"
@@ -24,19 +18,48 @@
 
     <meta
       name="description"
-      content="Portfolio de Stéphanie COUPAMA — Développeuse React et WordPress, La Réunion."
+      content="Portfolio de Stéphanie COUPAMA — Développeuse React et WordPress à La Réunion."
     />
     <meta name="author" content="Stéphanie COUPAMA — By Fri'MouSs" />
 
+    <link rel="canonical" href="https://portfolio-graphweb.vercel.app/" />
+
+    <meta property="og:locale" content="fr_FR" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Portfolio de Stéphanie COUPAMA" />
     <meta property="og:title" content="Stéphanie COUPAMA — Portfolio" />
     <meta
       property="og:description"
       content="Développeuse React et WordPress basée à La Réunion."
     />
-    <meta property="og:type" content="website" />
     <meta property="og:url" content="https://portfolio-graphweb.vercel.app/" />
+    <meta
+      property="og:image"
+      content="https://portfolio-graphweb.vercel.app/images/og-portfolio.png"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta
+      property="og:image:alt"
+      content="Aperçu du portfolio de Stéphanie COUPAMA"
+    />
 
-    <title>Portfolio de Stéphanie — By Fri'MouSs</title>
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Stéphanie COUPAMA — Portfolio" />
+    <meta
+      name="twitter:description"
+      content="Développeuse React et WordPress basée à La Réunion."
+    />
+    <meta
+      name="twitter:image"
+      content="https://portfolio-graphweb.vercel.app/images/og-portfolio.png"
+    />
+    <meta
+      name="twitter:image:alt"
+      content="Aperçu du portfolio de Stéphanie COUPAMA"
+    />
+
+    <title>Stéphanie COUPAMA — Développeuse React & WordPress</title>
   </head>
   <body>
     <div id="root"></div>
