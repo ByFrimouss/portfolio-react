@@ -107,7 +107,6 @@ export function ParallaxImage({ src, alt = "", speed = 0.4, className = "" }) {
         alt={alt}
         className="parallax-image"
         style={{ y, scale: 1.2 }}
-        loading="lazy"
         decoding="async"
         width="800"
         height="600"

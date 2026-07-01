@@ -12,14 +12,7 @@ export const projects = [
     description:
       "Portfolio personnel développé from scratch avec React 19 : animations avancées avec Framer Motion, curseur personnalisé, parallaxe, transitions de routes, mode clair/sombre, score Lighthouse 100/100/100/100, headers de sécurité A sur securityheaders.com.",
     image: "/images/project-portfolio.webp",
-    tags: [
-      "React",
-      "Framer Motion",
-      "Redux Toolkit",
-      "SASS",
-      "Vite",
-      "SwiperJS",
-    ],
+    tags: ["React", "Framer Motion", "Redux Toolkit", "Vite", "SwiperJS"],
     github: "https://github.com/ByFrimouss/portfolio-react",
     live: null,
     featured: true,

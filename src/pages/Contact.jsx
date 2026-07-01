@@ -50,12 +50,11 @@ export default function Contact() {
   });
 
   const [status, setStatus] = useState("idle");
-
   const handleChange = (e) => {
-    const { id, value, type, checked } = e.target;
+    const { id, value, type: inputType, checked } = e.target;
     setForm((prev) => ({
       ...prev,
-      [id]: type === "checkbox" ? checked : value,
+      [id]: inputType === "checkbox" ? checked : value,
     }));
   };
 
@@ -146,9 +145,9 @@ export default function Contact() {
                     disabled={status === "sending"}
                   >
                     <option value="">Sélectionnez une option...</option>
-                    {REQUEST_TYPES.map((type) => (
-                      <option key={type} value={type}>
-                        {type}
+                    {REQUEST_TYPES.map((requestType) => (
+                      <option key={requestType} value={requestType}>
+                        {requestType}
                       </option>
                     ))}
                   </select>

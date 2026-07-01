@@ -56,7 +56,7 @@ export default function Navbar() {
         {/* Logo / Nom */}
         <NavLink to="/" className="navbar__logo" onClick={closeMenu}>
           <img
-            src="/images/graphweb_rose-transparent.png"
+            src="/images/graphweb_rose-transparent.webp"
             alt="Gr@ph'Web"
             className="navbar__logo-img"
           />
