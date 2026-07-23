@@ -1,39 +1,73 @@
 /* ============================================================
    App.css
-   RÈGLES CRITIQUES pour le bon fonctionnement du layout.
+   Conteneurs principaux de l'application
    ============================================================ */
 
-/* Reset html/body pour que le fond couvre tout */
 html,
 body {
+  width: 100%;
   min-height: 100%;
-  width: 100%;
-  overflow-x: hidden;
+
+  /*
+   * clip masque seulement le débordement horizontal.
+   * Contrairement à hidden, il ne crée pas un conteneur
+   * de défilement susceptible de perturber position: sticky.
+   */
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
-/* #root créé par Vite — doit occuper toute la hauteur */
 #root {
-  min-height: 100vh;
+  position: relative;
+
   width: 100%;
+  min-height: 100vh;
+
+  overflow: visible;
 }
 
-/* .app-root : position relative OBLIGATOIRE pour Framer Motion.
-   useScroll() remonte le DOM pour trouver le premier ancêtre
-   positionné (non-static). Sans ça : warning console +
-   l'effet parallax ne fonctionne pas. */
+/*
+ * Le scroll doit rester géré par la fenêtre du navigateur.
+ */
 .app-root {
   position: relative;
-  min-height: 100vh;
+
   display: flex;
   flex-direction: column;
-  /* Empêche le canvas CursorTrail de créer un scroll horizontal */
-  overflow-x: hidden;
+
+  width: 100%;
+  min-height: 100vh;
+  height: auto;
+  max-height: none;
+
+  overflow: visible;
+  overflow-x: visible;
+  overflow-y: visible;
+
+  transform: none;
+  filter: none;
+  perspective: none;
+  contain: none;
 }
 
-/* .app-main : flex:1 pousse le footer tout en bas même
-   sur les pages avec peu de contenu */
+/*
+ * Le contenu principal doit grandir avec son contenu.
+ */
 .app-main {
-  position: relative; /* Deuxième ancêtre positionné pour Framer Motion */
-  flex: 1;
+  position: relative;
+
+  flex: 1 0 auto;
+
   width: 100%;
+  min-height: 0;
+  height: auto;
+
+  overflow: visible;
+  overflow-x: visible;
+  overflow-y: visible;
+
+  transform: none;
+  filter: none;
+  perspective: none;
+  contain: none;
 }

@@ -1,10 +1,3 @@
-// ============================================================
-// themeSlice.js — Redux slice pour le thème dark/light
-//
-// CORRECTION : on initialise aussi data-theme sur <html>
-// au chargement de la page (avant même le premier render React).
-// ============================================================
-
 import { createSlice } from "@reduxjs/toolkit";
 
 // Thème sauvegardé en localStorage (persiste entre sessions)

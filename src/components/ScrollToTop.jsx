@@ -1,33 +1,45 @@
 // ============================================================
 // ScrollToTop.jsx
-//
-// POURQUOI CE COMPOSANT ?
-// React Router change l'URL et affiche le nouveau composant
-// MAIS il ne touche pas à la position du scroll — le navigateur
-// reste exactement où tu étais sur la page précédente.
-//
-// Ce composant écoute chaque changement de pathname via
-// useLocation() et remonte en haut de page instantanément.
-//
-// UTILISATION : placé une seule fois dans App.jsx, AVANT le Router.
-// Il n'affiche rien visuellement (return null).
+// Remonte en haut avant l'affichage de chaque nouvelle route.
 // ============================================================
 
-import { useEffect } from "react";
+import { useLayoutEffect } from "react";
 import { useLocation } from "react-router-dom";
 
 export default function ScrollToTop() {
-  const { pathname } = useLocation();
+  const location = useLocation();
 
-  useEffect(() => {
-    // Remonte en haut à chaque changement de route
+  useLayoutEffect(() => {
+    // On ignore les liens vers une ancre éventuelle.
+    if (location.hash) {
+      return undefined;
+    }
+
+    const html = document.documentElement;
+    const previousScrollBehavior = html.style.scrollBehavior;
+
+    // Empêche le scroll smooth global de ralentir la remise à zéro.
+    html.style.scrollBehavior = "auto";
+
     window.scrollTo({
       top: 0,
       left: 0,
-      behavior: "instant", // 'instant' et pas 'smooth' pour éviter
-      // un scroll visible entre les pages
+      behavior: "auto",
     });
-  }, [pathname]); // Se déclenche uniquement quand l'URL change
 
-  return null; // Ce composant ne rend rien dans le DOM
+    // Sécurité supplémentaire selon les navigateurs.
+    html.scrollTop = 0;
+    document.body.scrollTop = 0;
+
+    const animationFrame = window.requestAnimationFrame(() => {
+      html.style.scrollBehavior = previousScrollBehavior;
+    });
+
+    return () => {
+      window.cancelAnimationFrame(animationFrame);
+      html.style.scrollBehavior = previousScrollBehavior;
+    };
+  }, [location.pathname, location.search, location.key, location.hash]);
+
+  return null;
 }

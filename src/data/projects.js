@@ -243,7 +243,7 @@ export const projects = [
     description:
       "Migration complète de l'application RH HRnet de jQuery vers React : conversion d'un plugin jQuery en composant React publié sur npm, remplacement des plugins restants, audit de performance Lighthouse avant/après.",
     image: "/images/hero-banner-hrnet.webp",
-    tags: ["React", "Redux Toolkit", "Vite", "SASS", "npm", "JavaScript"],
+    tags: ["React", "Redux Toolkit", "Vite", "npm", "JavaScript"],
     github: "https://github.com/ByFrimouss/hrnet-react",
     npm: "https://www.npmjs.com/package/@byfrimouss/hrnet-modal-react",
     live: null,

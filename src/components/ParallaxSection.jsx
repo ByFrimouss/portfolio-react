@@ -1,19 +1,3 @@
-// ============================================================
-// ParallaxSection.jsx — Composant Parallax AU SCROLL
-//
-// SOLUTION FINALE pour les warnings Framer Motion :
-//
-// ❌ container: { current: window }  → window n'est pas un Element,
-//    ResizeObserver plante avec "parameter 1 is not of type Element"
-//
-// ❌ container: windowRef global     → même problème
-//
-// ✅ Pas de `container` du tout      → Framer Motion utilise le scroll
-//    de la page automatiquement, c'est son comportement par défaut.
-//    Le seul vrai fix pour le warning "non-static position" est de
-//    s'assurer que les ancêtres dans App.jsx ont position: relative.
-// ============================================================
-
 import { useRef } from "react";
 import { motion, useScroll, useTransform, useSpring } from "framer-motion";
 import PropTypes from "prop-types";

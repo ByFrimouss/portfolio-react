@@ -377,7 +377,7 @@ export default function ProjectDetail() {
               ←
             </button>
 
-            {/* 👇 MODIFIÉ — zoom au clic sur l'image */}
+            {/* Zoom au clic sur l'image */}
             <img
               src={images[selectedIndex]}
               alt="preview"
@@ -415,7 +415,7 @@ export default function ProjectDetail() {
           </div>
         )}
       </motion.div>
-      {/* 🟢 Maintenant ce composant est bien englobé et à sa place */}
+      {/* Composant englobé et à sa place */}
       <BackToTopProgress />
     </>
   );

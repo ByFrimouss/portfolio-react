@@ -1,7 +1,3 @@
-// ============================================================
-// App.jsx
-// ============================================================
-
 import { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { selectTheme } from "./store/themeSlice";
@@ -11,7 +7,6 @@ import Footer from "./components/Footer";
 import CursorTrail from "./components/CursorTrail";
 import ScrollToTop from "./components/ScrollToTop";
 import "./App.css";
-import "./styles/main.scss";
 
 function App() {
   const theme = useSelector(selectTheme);

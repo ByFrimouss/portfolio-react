@@ -2,22 +2,38 @@
 // variables.scss — Palette Bleu & Rose — Stéphanie COUPAMA
 // ============================================================
 
-// --- Palette Dark (défaut) ---
-// Ces variables sont utilisées en mode sombre.
-// Le mode light les écrase via les CSS custom properties dans main.scss.
+// ============================================================
+// variables.scss — Identité Graph'Web
+// ============================================================
 
-$color-bg: #050b16; // Fond très sombre bleu nuit
-$color-bg-alt: #080f1e; // Sections alternées
-$color-surface: #0d1628; // Cartes / panneaux
-$color-border: rgba(101, 155, 255, 0.15); // Bordures teintées bleu
+// --- Couleurs officielles du logo ---
 
-$color-primary: #1c89ed; // Bleu — accent principal
-$color-secondary: #ff4d9e; // Rose vif — accent secondaire
-$color-accent: #00e5ff; // Cyan électrique — highlight
+$brand-blue: #1c89ed;
+$brand-blue-dark: #0d5fae;
+$brand-blue-light: #5cb9ff;
 
-$color-text: #e8ecf8; // Texte principal (blanc-bleuté)
-$color-text-muted: #8ab0d8; // Texte secondaire
-$color-text-light: #ffffff; // Blanc pur
+$brand-pink: #e606b2;
+$brand-pink-dark: #8d036d;
+$brand-pink-light: #ff52d4;
+
+$brand-navy: #050b16;
+$brand-white: #f8fbff;
+
+// --- Palette Dark ---
+
+$color-bg: $brand-navy;
+$color-bg-alt: #080f1e;
+$color-surface: #0d1628;
+
+$color-border: rgba($brand-blue-light, 0.18);
+
+$color-primary: $brand-blue;
+$color-secondary: $brand-pink;
+$color-accent: $brand-blue-light;
+
+$color-text: #e8ecf8;
+$color-text-muted: #8ab0d8;
+$color-text-light: $brand-white;
 
 // --- Typographie ---
 $font-display: "Syne", sans-serif;
@@ -63,8 +79,8 @@ $transition-slow: 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 // --- Ombres ---
 $shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
 $shadow-md: 0 8px 32px rgba(0, 0, 0, 0.5);
-$shadow-glow: 0 0 40px rgba(106, 92, 255, 0.35);
-$shadow-pink: 0 0 40px rgba(255, 77, 158, 0.25);
+$shadow-glow: 0 0 40px rgba($brand-blue, 0.35);
+$shadow-pink: 0 0 40px rgba($brand-pink, 0.28);
 
 // --- Z-index ---
 $z-base: 1;

@@ -56,26 +56,39 @@
 // THÈME DARK (défaut)
 // ============================================================
 :root {
-  --color-bg: #050b16;
-  --color-bg-alt: #080f1e;
-  --color-surface: #0d1628;
-  --color-border: rgba(106, 92, 255, 0.15);
+  // Couleurs de marque utilisables dans tous les composants
+  --brand-blue: #{$brand-blue};
+  --brand-blue-dark: #{$brand-blue-dark};
+  --brand-blue-light: #{$brand-blue-light};
 
-  --color-primary: #1c89ed;
-  --color-secondary: #ff4d9e;
-  --color-accent: #00e5ff;
+  --brand-pink: #{$brand-pink};
+  --brand-pink-dark: #{$brand-pink-dark};
+  --brand-pink-light: #{$brand-pink-light};
 
-  --color-text: #e8ecf8;
-  --color-text-muted: #7b85a8;
-  --color-text-light: #ffffff;
+  // Couleurs sémantiques
+  --color-bg: #{$color-bg};
+  --color-bg-alt: #{$color-bg-alt};
+  --color-surface: #{$color-surface};
+  --color-border: #{$color-border};
 
-  --hero-gradient-1: rgba(106, 92, 255, 0.18);
-  --hero-gradient-2: rgba(255, 77, 158, 0.12);
+  --color-primary: #{$color-primary};
+  --color-secondary: #{$color-secondary};
+  --color-accent: #{$color-accent};
+
+  --color-text: #{$color-text};
+  --color-text-muted: #{$color-text-muted};
+  --color-text-light: #{$color-text-light};
+
+  // Fond du Hero : bleu à gauche, rose à droite
+  --hero-gradient-1: #{rgba($brand-blue, 0.18)};
+  --hero-gradient-2: #{rgba($brand-pink, 0.11)};
   --hero-grid-color: rgba(255, 255, 255, 0.035);
-  --shadow-glow: 0 0 40px rgba(106, 92, 255, 0.35);
-  --shadow-pink: 0 0 40px rgba(255, 77, 158, 0.25);
+
+  --shadow-glow: #{$shadow-glow};
+  --shadow-pink: #{$shadow-pink};
 
   --navbar-height: #{$navbar-height};
+
   color-scheme: dark;
 }
 
@@ -117,22 +130,43 @@
 }
 
 html {
-  position: relative; /* Fix Framer Motion useScroll warning */
+  position: relative;
+  width: 100%;
+  min-height: 100%;
+
   font-size: 16px;
   scroll-behavior: smooth;
-  overflow-x: hidden;
+
+  overflow-x: clip;
+  overflow-y: visible;
 }
 
 body {
+  width: 100%;
+  min-height: 100vh;
+
   font-family: $font-body;
   color: var(--color-text);
   background-color: var(--color-bg);
   line-height: 1.6;
-  overflow-x: hidden;
+
+  overflow-x: clip;
+  overflow-y: visible;
+
   -webkit-font-smoothing: antialiased;
+
   transition:
     background-color 0.35s ease,
     color 0.35s ease;
+}
+
+#root {
+  position: relative;
+
+  width: 100%;
+  min-height: 100vh;
+
+  overflow: visible;
 }
 
 ::selection {
@@ -246,7 +280,8 @@ button {
     &:hover {
       opacity: 0.88;
       transform: translateY(-2px);
-      box-shadow: var(--shadow-pink);
+      box-shadow: 0 0 28px
+        color-mix(in srgb, var(--color-secondary) 35%, transparent);
       .btn__arrow {
         transform: translateX(4px);
       }
