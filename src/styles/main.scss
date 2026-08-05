@@ -101,9 +101,9 @@
   --color-surface: #ffffff;
   --color-border: rgba(106, 92, 255, 0.2);
 
-  --color-primary: #1c89ed;
-  --color-secondary: #e8307e;
-  --color-accent: #0099cc;
+  --color-primary: #0d5fae;
+  --color-secondary: #8d036d;
+  --color-accent: #006b8f;
 
   --color-text: #1a1f3a;
   --color-text-muted: #5a6080;
@@ -201,12 +201,8 @@ button {
 .container {
   width: 90%;
   max-width: $container-max;
-  margin: 0 auto;
+  margin: 0 auto 3rem;
   padding: 0 $spacing-md;
-}
-
-.section {
-  position: relative;
 }
 
 .section-label {
@@ -214,7 +210,7 @@ button {
   font-size: $fs-small;
   letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: $color-primary;
+  color: var(--color-primary);
   display: block;
   margin-bottom: $spacing-sm;
 }

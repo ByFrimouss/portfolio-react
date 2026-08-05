@@ -21,9 +21,9 @@ const ROTATING_WORDS = [
   "Développeuse React JS",
   "Développeuse WordPress",
   "Graphiste Web",
-  "E.Commerce",
+  "E-Commerce",
   "Créatrice d'expériences web",
-  "Développeuse Augmentée IA",
+  "Développeuse Augmentée par l'IA",
 ];
 
 const containerVariants = {
@@ -223,7 +223,7 @@ export default function HeroSlider() {
             custom={0.1}
           >
             <span className="hero__badge-dot" />
-            By Fri'MouSs · La Réunion
+            By Fri'MouSs · Basé à La Réunion
           </motion.div>
 
           {/* Titre */}
@@ -310,9 +310,9 @@ export default function HeroSlider() {
             animate="visible"
             custom={0.9}
           >
-            De la cuisine au code, en passant par le transport et le graphisme —
-            j'ai construit mon chemin avec détermination. Aujourd'hui je crée
-            des expériences web modernes et mémorables.
+            Je conçois des interfaces React et WordPress modernes, accessibles
+            et mémorables, de l’identité graphique jusqu’à la mise en
+            production.
           </motion.p>
 
           {/* Boutons */}

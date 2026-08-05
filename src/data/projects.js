@@ -12,6 +12,11 @@ export const projects = [
     description:
       "Portfolio personnel développé from scratch avec React 19 : animations avancées avec Framer Motion, curseur personnalisé, parallaxe, transitions de routes, mode clair/sombre, score Lighthouse 100/100/100/100, headers de sécurité A sur securityheaders.com.",
     image: "/images/project-portfolio.webp",
+    type: "Projet personnel",
+    role: "Conception, direction artistique et développement front-end",
+    highlight: "Lighthouse 100/100/100/100 et score A en sécurité",
+    imageAlt:
+      "Page d’accueil du portfolio FriMouSs avec interface sombre et identité graphique bleu et rose",
     tags: ["React", "Framer Motion", "Redux Toolkit", "Vite", "SwiperJS"],
     github: "https://github.com/ByFrimouss/portfolio-react",
     live: null,
@@ -243,6 +248,11 @@ export const projects = [
     description:
       "Migration complète de l'application RH HRnet de jQuery vers React : conversion d'un plugin jQuery en composant React publié sur npm, remplacement des plugins restants, audit de performance Lighthouse avant/après.",
     image: "/images/hero-banner-hrnet.webp",
+    type: "Projet de formation",
+    role: "Migration front-end et publication d’un composant npm",
+    highlight: "Migration complète vers React sans jQuery résiduel",
+    imageAlt:
+      "Interface de gestion des employés de l’application RH HRnet migrée vers React",
     tags: ["React", "Redux Toolkit", "Vite", "npm", "JavaScript"],
     github: "https://github.com/ByFrimouss/hrnet-react",
     npm: "https://www.npmjs.com/package/@byfrimouss/hrnet-modal-react",
@@ -393,6 +403,12 @@ export const projects = [
     description:
       "Développement front-end d'une application bancaire avec React et Redux : authentification JWT, gestion du profil utilisateur et modélisation des endpoints API transactions avec Swagger.",
     image: "/images/hero-banner-argentbank.webp",
+    type: "Projet de formation",
+    role: "Développement front-end et modélisation d’API",
+    highlight:
+      "Authentification JWT et endpoints de transactions documentés avec Swagger",
+    imageAlt:
+      "Tableau de bord de l’application bancaire Argent Bank développé avec React et Redux",
     tags: [
       "React",
       "Redux",
@@ -532,6 +548,11 @@ export const projects = [
     description:
       "Développement d'un tableau de bord d'analytics de coaching sportif avec React : intégration de graphiques avancés (BarChart, LineChart, RadarChart, RadialBarChart), appels API via un service dédié et documentation complète.",
     image: "/images/hero-banner-sportsee.webp",
+    type: "Projet de formation",
+    role: "Développement front-end et visualisation de données",
+    highlight: "Quatre graphiques interactifs alimentés par une API Node.js",
+    imageAlt:
+      "Tableau de bord sportif SportSee avec graphiques d’activité, score et données nutritionnelles",
     tags: ["React", "Recharts", "Axios", "JavaScript", "JSDoc", "Node.js"],
     github: "https://github.com/ByFrimouss/Sportsee-dashboard",
     live: null,
@@ -674,6 +695,12 @@ export const projects = [
     description:
       "Cadrage complet d'une application de soutien scolaire : diagrammes de cas d'usage, user stories, maquettes Figma desktop et mobile, et tableau Kanban pour une association mettant en relation élèves et tuteurs bénévoles.",
     image: "/images/hero-banner-learn@home.webp",
+    type: "Projet de formation",
+    role: "Cadrage fonctionnel et conception UX/UI",
+    highlight:
+      "Parcours, user stories et prototypes responsive prêts pour le développement",
+    imageAlt:
+      "Maquettes desktop et mobile de la plateforme de soutien scolaire Learn at Home",
     tags: ["Figma", "UX Design", "Agile", "Kanban", "User Stories"],
     github: null,
     live: null,
@@ -791,6 +818,11 @@ export const projects = [
     description:
       "Débogage et mise en place de tests unitaires, d'intégration et E2E sur une application SaaS RH de gestion de notes de frais, avec un objectif de couverture de code à 80%.",
     image: "/images/hero-banner-billed.webp",
+    type: "Projet de formation",
+    role: "Débogage, tests automatisés et assurance qualité",
+    highlight: "Couverture des fonctions portée à 80 % minimum",
+    imageAlt:
+      "Interface de gestion des notes de frais Billed pour les parcours employé et administrateur",
     tags: [
       "JavaScript",
       "Jest",
@@ -939,6 +971,11 @@ export const projects = [
     description:
       "Développement d'un moteur de recherche performant pour un site de recettes de cuisine : deux algorithmes comparés (boucles natives vs programmation fonctionnelle), fiche d'investigation et analyse des performances.",
     image: "/images/hero-banner-lespetitsplats.webp",
+    type: "Projet de formation",
+    role: "Développement JavaScript et optimisation algorithmique",
+    highlight: "Deux algorithmes comparés pour une recherche quasi instantanée",
+    imageAlt:
+      "Interface du moteur de recherche de recettes Les Petits Plats avec filtres et cartes de recettes",
     tags: [
       "JavaScript",
       "Tailwind",
@@ -1101,6 +1138,11 @@ export const projects = [
     description:
       "Intégration mobile-first d'un site de restauration gastronomique parisien avec animations CSS avancées, loader, effets hover et approche Sass structurée.",
     image: "/images/hero-banner-ohmyfood.webp",
+    type: "Projet de formation",
+    role: "Intégration front-end mobile-first et animations CSS",
+    highlight: "Animations réalisées en CSS pur et code validé par le W3C",
+    imageAlt:
+      "Interface mobile du site de restauration OhMyFood avec cartes de restaurants et animations",
     tags: ["HTML", "CSS", "Sass", "Git", "GitHub Pages", "Mobile First"],
     live: "https://byfrimouss.github.io/ohmyfood/",
     featured: true,
@@ -1242,6 +1284,11 @@ export const projects = [
     description:
       "Création d'un site WordPress entièrement personnalisé pour une photographe professionnelle : thème sur mesure, custom post types, filtres Ajax, lightbox et pagination infinie.",
     image: "/images/hero-banner-mota.webp",
+    type: "Projet de formation WordPress",
+    role: "Développement d’un thème WordPress sur mesure",
+    highlight: "Galerie filtrée en Ajax avec pagination infinie et lightbox",
+    imageAlt:
+      "Site WordPress de la photographe Nathalie Mota avec galerie de photographies et filtres",
     tags: ["WordPress", "PHP", "JavaScript", "jQuery", "Ajax", "CSS", "GitHub"],
     github: "https://github.com/ByFrimouss/Nathalie_Mota",
     live: null,
@@ -1412,6 +1459,11 @@ export const projects = [
     description:
       "Débogage en urgence du site d'une PME médicale : restauration de l'accès, correction de 5 bugs critiques, rédaction d'un cahier de recette et documentation sur les tests unitaires et fonctionnels.",
     image: "/images/hero-banner-medit.webp",
+    type: "Projet de formation WordPress",
+    role: "Diagnostic, débogage et recette fonctionnelle",
+    highlight: "Cinq bugs critiques corrigés avant l’événement client",
+    imageAlt:
+      "Site WordPress MedIT restauré après correction des erreurs PHP, JavaScript et Elementor",
     tags: ["WordPress", "PHP", "JavaScript", "Elementor", "CSS", "PHPMyAdmin"],
     github: "https://github.com/ByFrimouss/Med_it",
     live: null,
@@ -1557,6 +1609,11 @@ export const projects = [
     description:
       "Optimisation des performances, du SEO et de l'accessibilité d'un site WordPress de mode luxe seconde main.",
     image: "/images/hero-banner-chic-dressing.webp",
+    type: "Projet de formation WordPress",
+    role: "Audit et optimisation des performances, du SEO et de l’accessibilité",
+    highlight: "Amélioration mesurée sur les quatre axes Lighthouse",
+    imageAlt:
+      "Site WordPress Chic Dressing consacré à la mode de luxe de seconde main après optimisation",
     tags: ["WordPress", "SEOPress", "Lighthouse", "PHP", "CSS"],
     github: null,
     live: null,
@@ -1702,6 +1759,12 @@ export const projects = [
     description:
       "Dynamisation du site d'un studio d'animation nominé aux Oscars : vidéo hero, carrousel, parallaxe, menu burger et animations CSS avancées.",
     image: "/images/hero-banner-koukaki.webp",
+    type: "Projet de formation WordPress",
+    role: "Développement d’animations et intégration dans un thème enfant",
+    highlight:
+      "Expérience immersive avec vidéo, parallaxe, carrousel et menu animé",
+    imageAlt:
+      "Site du studio d’animation Koukaki avec vidéo hero, personnages et effets de parallaxe",
     tags: [
       "WordPress",
       "JavaScript",

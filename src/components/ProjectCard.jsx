@@ -1,135 +1,199 @@
 // ============================================================
-// ProjectCard.jsx
-// Carte de projet réutilisable.
-//
-// Props :
-//   project  → objet projet (voir data/projects.js)
-//   index    → index dans la liste (pour le délai de stagger)
-//   featured → booléen (carte plus grande sur la home)
+// ProjectCard.jsx — Carte projet réutilisable
 // ============================================================
 
-import { motion } from "framer-motion";
+import { motion, useReducedMotion } from "framer-motion";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+
 import LazyImage from "./LazyImage";
 import "./ProjectCard.scss";
 
-// Variante d'entrée avec délai basé sur l'index
 const cardVariants = {
-  hidden: { opacity: 0, y: 50 },
-  visible: (i) => ({
+  hidden: { opacity: 0, y: 40 },
+  visible: (index) => ({
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.6,
-      delay: i * 0.1, // Stagger : chaque card décalée de 100ms
+      duration: 0.55,
+      delay: Math.min(index * 0.06, 0.36),
       ease: [0.16, 1, 0.3, 1],
     },
   }),
 };
 
-export default function ProjectCard({ project, index = 0, featured = false }) {
+export default function ProjectCard({
+  project,
+  index = 0,
+  featured = false,
+  headingLevel = "h3",
+}) {
+  const reduceMotion = useReducedMotion();
+  const Heading = headingLevel;
+
   const {
     slug,
     title,
     subtitle,
     description,
-    tags,
+    tags = [],
     image,
+    imageAlt,
     github,
     live,
+    npm,
     color,
+    year,
+    type,
+    highlight,
   } = project;
 
+  const visibleTags = tags.slice(0, featured ? 4 : 3);
+  const hiddenTagCount = Math.max(tags.length - visibleTags.length, 0);
+  const titleId = `project-card-title-${slug}`;
+
   return (
-    // motion.article pour l'animation à l'entrée dans le viewport
-    // whileInView : déclenche l'animation quand la card entre dans le viewport
-    // viewport.once : ne se déclenche qu'une seule fois
     <motion.article
+      layout
       className={`project-card ${featured ? "project-card--featured" : ""}`}
       variants={cardVariants}
-      initial="hidden"
+      initial={reduceMotion ? false : "hidden"}
       whileInView="visible"
-      viewport={{ once: true, margin: "-80px" }}
+      viewport={{ once: true, margin: "-60px" }}
       custom={index}
-      // Effet de lift au survol
-      whileHover={{ y: -8, transition: { duration: 0.3 } }}
-      // Bordure colorée via variable CSS inline
-      style={{ "--card-color": color }}
+      exit={
+        reduceMotion
+          ? { opacity: 0 }
+          : {
+              opacity: 0,
+              scale: 0.97,
+              transition: { duration: 0.2 },
+            }
+      }
+      whileHover={reduceMotion ? undefined : { y: -6 }}
+      transition={{ layout: { duration: reduceMotion ? 0 : 0.4 } }}
+      style={{ "--card-color": color || "var(--color-primary)" }}
+      aria-labelledby={titleId}
     >
-      {/* Image de couverture */}
-      <Link to={`/projects/${slug}`} className="project-card__image-link">
+      <Link
+        to={`/projects/${slug}`}
+        className="project-card__image-link"
+        aria-label={`Découvrir l’étude de cas ${title}`}
+      >
         <div className="project-card__image">
           {image ? (
-            // LazyImage : IntersectionObserver custom, pas d'avertissement WebView
-            <LazyImage src={image} alt={title} aspectRatio="16/9" />
+            <LazyImage
+              src={image}
+              alt={imageAlt || `Aperçu du projet ${title}`}
+              aspectRatio="16/10"
+            />
           ) : (
-            <div className="project-card__placeholder">
-              <span>{title[0]}</span>
+            <div className="project-card__placeholder" aria-hidden="true">
+              <span>{title.charAt(0)}</span>
             </div>
           )}
 
-          {/* Overlay au hover */}
-          <div className="project-card__overlay">
-            <span className="project-card__view-btn">Voir le projet →</span>
+          <div className="project-card__overlay" aria-hidden="true">
+            <span className="project-card__view-btn">
+              Voir l’étude de cas <span>↗</span>
+            </span>
           </div>
+
+          <span className="project-card__index" aria-hidden="true">
+            {String(index + 1).padStart(2, "0")}
+          </span>
         </div>
       </Link>
 
-      {/* Contenu texte */}
       <div className="project-card__body">
-        {/* Tags techniques */}
-        <ul className="project-card__tags">
-          {tags.slice(0, 3).map((tag) => (
+        <div className="project-card__meta">
+          <span>{year}</span>
+          <span aria-hidden="true">•</span>
+          <span>
+            {type || (featured ? "Projet sélectionné" : "Étude de cas")}
+          </span>
+        </div>
+
+        <ul className="project-card__tags" aria-label="Technologies utilisées">
+          {visibleTags.map((tag) => (
             <li key={tag} className="project-card__tag">
               {tag}
             </li>
           ))}
+
+          {hiddenTagCount > 0 && (
+            <li
+              className="project-card__tag project-card__tag--more"
+              aria-label={`${hiddenTagCount} technologies supplémentaires`}
+            >
+              +{hiddenTagCount}
+            </li>
+          )}
         </ul>
 
-        {/* Titre */}
         <Link to={`/projects/${slug}`} className="project-card__title-link">
-          <h3 className="project-card__title">{title}</h3>
+          <Heading id={titleId} className="project-card__title">
+            {title}
+          </Heading>
         </Link>
 
-        {/* Sous-titre */}
-        <p className="project-card__subtitle">{subtitle}</p>
+        {subtitle && <p className="project-card__subtitle">{subtitle}</p>}
 
-        {/* Description */}
         <p className="project-card__desc">{description}</p>
 
-        {/* Liens */}
+        {highlight && (
+          <p className="project-card__highlight">
+            <span aria-hidden="true">↗</span>
+            {highlight}
+          </p>
+        )}
+
         <div className="project-card__links">
           <Link
             to={`/projects/${slug}`}
             className="project-card__link project-card__link--primary"
+            aria-label={`Voir les détails du projet ${title}`}
           >
-            Détails
+            Étude de cas <span aria-hidden="true">→</span>
           </Link>
 
-          {github && (
-            <a
-              href={github}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="project-card__link"
-              aria-label="GitHub"
-            >
-              GitHub ↗
-            </a>
-          )}
+          <div className="project-card__external-links">
+            {github && (
+              <a
+                href={github}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-card__link"
+                aria-label={`Voir le dépôt GitHub du projet ${title}`}
+              >
+                GitHub ↗
+              </a>
+            )}
 
-          {live && (
-            <a
-              href={live}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="project-card__link"
-              aria-label="Demo live"
-            >
-              Live ↗
-            </a>
-          )}
+            {npm && (
+              <a
+                href={npm}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-card__link"
+                aria-label={`Voir le package npm du projet ${title}`}
+              >
+                npm ↗
+              </a>
+            )}
+
+            {live && (
+              <a
+                href={live}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="project-card__link"
+                aria-label={`Voir la démonstration en ligne du projet ${title}`}
+              >
+                Démo ↗
+              </a>
+            )}
+          </div>
         </div>
       </div>
     </motion.article>
@@ -141,13 +205,19 @@ ProjectCard.propTypes = {
     slug: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
     subtitle: PropTypes.string,
-    description: PropTypes.string,
+    description: PropTypes.string.isRequired,
     tags: PropTypes.arrayOf(PropTypes.string),
     image: PropTypes.string,
+    imageAlt: PropTypes.string,
     github: PropTypes.string,
     live: PropTypes.string,
+    npm: PropTypes.string,
     color: PropTypes.string,
+    year: PropTypes.number,
+    type: PropTypes.string,
+    highlight: PropTypes.string,
   }).isRequired,
   index: PropTypes.number,
   featured: PropTypes.bool,
+  headingLevel: PropTypes.oneOf(["h2", "h3", "h4"]),
 };

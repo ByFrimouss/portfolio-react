@@ -1,0 +1,170 @@
+@use "../styles/variables" as *;
+
+// ============================================================
+// BackToTopProgress.scss
+// Styles isolés du bouton de retour en haut.
+// ============================================================
+
+.back-to-top-wrapper {
+  position: fixed;
+  right: clamp(1rem, 3vw, 2.5rem);
+  bottom: clamp(2.5rem, 6vw, 4.5rem);
+  z-index: 999;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  pointer-events: none;
+}
+
+.back-to-top__trail {
+  order: -1;
+
+  width: 3px;
+  height: 120px;
+  margin-bottom: 4px;
+
+  border-radius: 999px;
+  background: linear-gradient(
+    to top,
+    rgba(77, 130, 255, 0.8),
+    rgba(168, 85, 247, 0.5),
+    rgba(255, 77, 158, 0.2),
+    transparent
+  );
+
+  transform-origin: bottom;
+  filter: blur(2px) drop-shadow(0 0 4px rgba(77, 130, 255, 0.8));
+
+  pointer-events: none;
+}
+
+.back-to-top {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 80px;
+  height: 80px;
+  padding: 0;
+
+  border: 0;
+  background: transparent;
+
+  cursor: pointer;
+  pointer-events: auto;
+
+  &:focus-visible {
+    outline: 3px solid var(--color-secondary, #ff4d9e);
+    outline-offset: 5px;
+    border-radius: 20px;
+  }
+
+  &__svg {
+    position: absolute;
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+  }
+
+  &__bg {
+    fill: rgba(5, 11, 22, 0.85);
+    stroke: rgba(255, 255, 255, 0.08);
+    stroke-width: 1.5;
+  }
+
+  &__progress {
+    fill: none;
+    stroke: url(#hexGradient);
+    stroke-width: 3;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+
+    transition: stroke-dashoffset 0.15s linear;
+
+    filter: drop-shadow(0 0 4px rgba(77, 130, 255, 0.9))
+      drop-shadow(0 0 10px rgba(77, 130, 255, 0.5))
+      drop-shadow(0 0 20px rgba(255, 77, 158, 0.2));
+  }
+
+  &__icon,
+  &__text,
+  &__percent {
+    position: absolute;
+    pointer-events: none;
+  }
+
+  &__icon {
+    font-size: 1.4rem;
+    line-height: 1;
+    color: #fff;
+
+    text-shadow:
+      0 0 8px rgba(77, 130, 255, 0.9),
+      0 0 20px rgba(77, 130, 255, 0.5);
+  }
+
+  &__text {
+    font-family: $font-mono;
+    font-size: 0.7rem;
+    font-weight: $fw-bold;
+    letter-spacing: 0.15em;
+    color: #79a2ff;
+
+    text-shadow:
+      0 0 6px rgba(77, 130, 255, 1),
+      0 0 15px rgba(77, 130, 255, 0.7),
+      0 0 30px rgba(255, 77, 158, 0.3);
+  }
+
+  &__percent {
+    bottom: -1.6rem;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    font-family: $font-mono;
+    font-size: 0.65rem;
+    letter-spacing: 0.05em;
+    white-space: nowrap;
+    color: rgba(121, 162, 255, 0.72);
+
+    text-shadow: 0 0 8px rgba(77, 130, 255, 0.4);
+  }
+}
+
+@media (max-width: 700px) {
+  .back-to-top-wrapper {
+    right: 0.75rem;
+    bottom: 2.5rem;
+  }
+
+  .back-to-top {
+    width: 66px;
+    height: 66px;
+
+    &__percent {
+      bottom: -1.25rem;
+      font-size: 0.58rem;
+    }
+  }
+
+  .back-to-top__trail {
+    height: 90px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .back-to-top__trail {
+    display: none;
+  }
+
+  .back-to-top__progress,
+  .back-to-top__percent {
+    transition: none;
+  }
+}

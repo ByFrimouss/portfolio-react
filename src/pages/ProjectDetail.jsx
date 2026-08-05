@@ -139,13 +139,16 @@ export default function ProjectDetail() {
     title,
     subtitle,
     details,
-    tags,
+    tags = [],
     image,
     github,
     npm,
     live,
     color,
     year,
+    type,
+    role,
+    highlight,
   } = project;
 
   return (
@@ -186,7 +189,7 @@ export default function ProjectDetail() {
         </div>
 
         {/* CONTENT */}
-        <section className="section">
+        <section className="section project-detail__main-section">
           <div className="container project-detail__content">
             {/* CONTEXTE */}
             <Section title="Contexte">
