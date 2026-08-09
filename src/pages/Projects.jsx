@@ -2,7 +2,7 @@
 // Projects.jsx — Page liste de tous les projets
 // ============================================================
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState, useSyncExternalStore } from "react";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 
 import ProjectCard from "../components/ProjectCard";
@@ -96,31 +96,20 @@ const pageVariants = {
 // Hook permettant de détecter la largeur de l’écran
 // ============================================================
 
-function useMediaQuery(query) {
-  const [matches, setMatches] = useState(() => {
-    if (typeof window === "undefined") {
-      return false;
-    }
-
-    return window.matchMedia(query).matches;
-  });
-
-  useEffect(() => {
+function subscribe(query) {
+  return (callback) => {
     const mediaQuery = window.matchMedia(query);
+    mediaQuery.addEventListener("change", callback);
+    return () => mediaQuery.removeEventListener("change", callback);
+  };
+}
 
-    const handleChange = (event) => {
-      setMatches(event.matches);
-    };
-
-    setMatches(mediaQuery.matches);
-    mediaQuery.addEventListener("change", handleChange);
-
-    return () => {
-      mediaQuery.removeEventListener("change", handleChange);
-    };
-  }, [query]);
-
-  return matches;
+function useMediaQuery(query) {
+  return useSyncExternalStore(
+    subscribe(query),
+    () => window.matchMedia(query).matches, // valeur côté client
+    () => false, // valeur côté serveur (SSR) — false par défaut
+  );
 }
 
 export default function Projects() {
@@ -158,9 +147,12 @@ export default function Projects() {
     return sortedProjects.filter(selectedFilter.match);
   }, [activeFilter, sortedProjects]);
 
-  useEffect(() => {
+  const [prevFilter, setPrevFilter] = useState(activeFilter);
+
+  if (activeFilter !== prevFilter) {
+    setPrevFilter(activeFilter);
     setVisibleCount(6);
-  }, [activeFilter]);
+  }
 
   const years = sortedProjects.map((project) => project.year);
   const firstYear = Math.min(...years);

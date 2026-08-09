@@ -185,6 +185,19 @@ export default function ProjectDetail() {
             <p>
               {subtitle} · {year}
             </p>
+
+            <div className="project-detail__meta">
+              {type && (
+                <span className="project-detail__meta-item">{type}</span>
+              )}
+              {role && (
+                <span className="project-detail__meta-item">{role}</span>
+              )}
+            </div>
+
+            {highlight && (
+              <p className="project-detail__highlight">✨ {highlight}</p>
+            )}
           </div>
         </div>
 

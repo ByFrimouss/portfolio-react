@@ -21,9 +21,6 @@ const ROTATING_WORDS = [
   "Développeuse React JS",
   "Développeuse WordPress",
   "Graphiste Web",
-  "E-Commerce",
-  "Créatrice d'expériences web",
-  "Développeuse Augmentée par l'IA",
 ];
 
 const containerVariants = {
@@ -223,7 +220,7 @@ export default function HeroSlider() {
             custom={0.1}
           >
             <span className="hero__badge-dot" />
-            By Fri'MouSs · Basé à La Réunion
+            Basé à La Réunion
           </motion.div>
 
           {/* Titre */}
