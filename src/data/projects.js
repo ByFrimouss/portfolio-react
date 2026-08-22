@@ -6,6 +6,453 @@
 export const projects = [
   {
     id: 12,
+    slug: "hrnet-jquery-vers-react",
+    title: "Migration jQuery → React — HRnet",
+    subtitle: "React · Redux Toolkit · Vite · npm · Lighthouse",
+    description:
+      "Migration complète de l'application RH HRnet de jQuery vers React : conversion d'un plugin jQuery en composant React publié sur npm, remplacement des plugins restants, audit de performance Lighthouse avant/après.",
+    image: "/images/hero-banner-hrnet.webp",
+    type: "Projet de formation",
+    role: "Migration front-end et publication d’un composant npm",
+    highlight: "Migration complète vers React sans jQuery résiduel",
+    imageAlt:
+      "Interface de gestion des employés de l’application RH HRnet migrée vers React",
+    tags: ["React", "Redux Toolkit", "Vite", "npm", "JavaScript"],
+    github: "https://github.com/ByFrimouss/hrnet-react",
+    npm: "https://www.npmjs.com/package/@byfrimouss/hrnet-modal-react",
+    live: null,
+    featured: true,
+    year: 2026,
+    color: "#f0a500",
+
+    details: {
+      context:
+        "Mission chez WealthHealth pour moderniser HRnet, leur application RH interne utilisée pour gérer les dossiers employés. L'application souffrait de bugs importants causés par des plugins jQuery obsolètes. L'objectif était de migrer l'ensemble vers React en convertissant un plugin jQuery en composant React publié sur npm, et en remplaçant les autres plugins par des librairies React modernes.",
+
+      objectives: [
+        "Convertir l'application HRnet de jQuery vers React 100% sans jQuery résiduel",
+        "Convertir le plugin jQuery modal en composant React et le publier sur npm",
+        "Remplacer les 3 plugins restants par des librairies React modernes",
+        "Mesurer les gains de performance avec des audits Lighthouse avant/après",
+        "Documenter le composant React publié avec un Readme complet",
+      ],
+
+      work: [
+        "Analyse du code jQuery existant et identification des 4 plugins à remplacer",
+        "Conversion du plugin modal jQuery en composant React fonctionnel",
+        "Publication du composant @byfrimouss/hrnet-modal-react sur npm",
+        "Rédaction du Readme avec description, props et exemples d'utilisation",
+        "Mise en place du projet React avec Vite et configuration Redux Toolkit",
+        "Intégration de react-datepicker pour remplacer le sélecteur de date jQuery",
+        "Intégration de react-select pour remplacer les menus déroulants jQuery",
+        "Intégration de TanStack Table pour remplacer le plugin de tableau jQuery",
+        "Développement de la page Create Employee avec formulaire complet",
+        "Développement de la page Employee List avec recherche, tri et pagination",
+        "Audit Lighthouse sur l'application jQuery originale (avant)",
+        "Build de production et audit Lighthouse sur l'application React (après)",
+      ],
+
+      problems: [
+        "Plugins jQuery causant des bugs, lenteurs et manipulation DOM excessive",
+        "Application entière à migrer sans laisser cohabiter jQuery et React",
+        "Composant modal à concevoir de zéro en paradigme fonctionnel React",
+        "Publication npm avec documentation claire pour que l'équipe puisse l'utiliser",
+        "Gestion de l'état global (remplaçant le localStorage jQuery) avec Redux Toolkit",
+      ],
+
+      solutions: [
+        "Migration 100% React avec Vite — zéro jQuery résiduel dans le code final",
+        "Composant modal en fonctions pures React, documenté et publié sur npm",
+        "react-datepicker, react-select et TanStack Table pour les 3 plugins restants",
+        "Redux Toolkit pour centraliser l'état des employés en remplacement du localStorage",
+        "Build de production avant les audits Lighthouse pour des mesures représentatives",
+      ],
+
+      result:
+        "Application HRnet entièrement migrée vers React avec des performances significativement améliorées mesurées par Lighthouse. Composant modal React publié sur npm (@byfrimouss/hrnet-modal-react) et documenté pour une réutilisation par l'équipe.",
+
+      learnings: [
+        "Migration d'une application jQuery vers React sans dette technique résiduelle",
+        "Création et publication d'un package React sur npm avec documentation",
+        "Architecture Redux Toolkit pour la gestion d'état global",
+        "Utilisation de TanStack Table pour des tableaux avec tri, recherche et pagination",
+        "Mesure et comparaison des performances avec Google Lighthouse avant/après migration",
+        "Paradigme fonctionnel React : composants fonctions, hooks, pas de classes",
+      ],
+
+      advice:
+        "Avant de migrer, auditer les performances de l'application existante. Sans mesure avant/après, impossible de prouver la valeur du travail réalisé — et les gains sont souvent bien plus importants qu'attendu.",
+
+      tools: [
+        {
+          name: "React 18 + Vite",
+          icon: "⚛️",
+          what: [
+            "Reconstruire l'application HRnet entièrement en composants fonctionnels React",
+            "Profiter du démarrage ultra-rapide de Vite en développement",
+            "Générer un build de production optimisé pour les audits Lighthouse",
+          ],
+        },
+        {
+          name: "Redux Toolkit",
+          icon: "🔄",
+          what: [
+            "Remplacer le localStorage jQuery par un store centralisé et maintenable",
+            "Gérer la liste des employés avec des actions et reducers simplifiés",
+            "Maintenir un état cohérent entre les pages Create Employee et Employee List",
+          ],
+        },
+        {
+          name: "@byfrimouss/hrnet-modal-react",
+          icon: "📦",
+          what: [
+            "Remplacer le plugin jQuery.modal.js par un composant React fonctionnel",
+            "Publier le composant sur npm pour le rendre réutilisable par toute l'équipe",
+            "Documenter les props et l'utilisation dans un Readme complet",
+          ],
+        },
+        {
+          name: "TanStack Table",
+          icon: "📋",
+          what: [
+            "Remplacer le plugin jQuery DataTables par une solution React native",
+            "Implémenter la recherche, le tri par colonne et la pagination côté client",
+            "Garder un code maintenable et performant sans manipulation DOM jQuery",
+          ],
+        },
+        {
+          name: "react-datepicker & react-select",
+          icon: "🗓️",
+          what: [
+            "Remplacer le sélecteur de date jQuery par un composant React accessible",
+            "Remplacer les menus déroulants jQuery par react-select personnalisable",
+            "Éliminer les appels réseau et manipulations DOM superflus des plugins jQuery",
+          ],
+        },
+        {
+          name: "Google Lighthouse",
+          icon: "📊",
+          what: [
+            "Auditer les performances de l'application jQuery originale comme baseline",
+            "Mesurer les gains réels après migration sur le build de production React",
+            "Produire des rapports comparatifs quantifiables pour justifier la migration",
+          ],
+        },
+        {
+          name: "npm (publication de package)",
+          icon: "🚀",
+          what: [
+            "Publier le composant modal sous le scope @byfrimouss sur npm",
+            "Permettre à l'équipe d'installer le composant via npm install",
+            "Versionner le package pour pouvoir itérer sans casser les projets existants",
+          ],
+        },
+      ],
+
+      images: [
+        "/images/hero-banner-hrnet.webp",
+        "/images/creation-employee-hrnet.webp",
+        "/images/liste-employee-hrnet.webp",
+        "/images/publication-npm-hrnet.webp",
+        "/images/doc-npm-hrnet.webp",
+      ],
+    },
+  },
+
+  {
+    id: 11,
+    slug: "argent-bank-react-redux",
+    title: "Application Bancaire — Argent Bank",
+    subtitle: "React · Redux · API REST · JWT · Swagger",
+    description:
+      "Développement front-end d'une application bancaire avec React et Redux : authentification JWT, gestion du profil utilisateur et modélisation des endpoints API transactions avec Swagger.",
+    image: "/images/hero-banner-argentbank.webp",
+    type: "Projet de formation",
+    role: "Développement front-end et modélisation d’API",
+    highlight:
+      "Authentification JWT et endpoints de transactions documentés avec Swagger",
+    imageAlt:
+      "Tableau de bord de l’application bancaire Argent Bank développé avec React et Redux",
+    tags: [
+      "React",
+      "Redux",
+      "JavaScript",
+      "JWT",
+      "Swagger",
+      "API REST",
+      "Node.js",
+    ],
+    github: "https://github.com/ByFrimouss/Argent-bank",
+    live: null,
+    featured: true,
+    year: 2026,
+    color: "#27b981",
+
+    details: {
+      context:
+        "Mission chez Remede Agency pour Argent Bank, une nouvelle banque cherchant à se lancer avec une application web moderne. Le projet se décomposait en deux phases : développer l'authentification utilisateur et la gestion du profil en Phase 1, puis modéliser les endpoints API pour les transactions en Phase 2.",
+
+      objectives: [
+        "Développer l'application web complète et responsive avec React",
+        "Gérer l'état global de l'application avec Redux",
+        "Intégrer l'authentification JWT via les appels à l'API REST",
+        "Permettre la consultation et la modification du profil utilisateur",
+        "Modéliser les endpoints API des transactions avec Swagger (Phase 2)",
+      ],
+
+      work: [
+        "Fork du repo existant et prise en main des issues GitHub",
+        "Mise en place du store Redux avec actions et reducers",
+        "Intégration de la page d'accueil avec les données du mockup",
+        "Développement de la page de connexion avec appel API et gestion du token JWT",
+        "Gestion de la persistance du token et protection des routes privées",
+        "Développement de la page profil avec affichage des données utilisateur",
+        "Implémentation de la modification du prénom et nom via appel API",
+        "Déconnexion avec suppression du token et redirection vers l'accueil",
+        "Modélisation des endpoints API transactions en Phase 2 avec Swagger",
+        "Export du fichier YAML de la documentation Swagger",
+      ],
+
+      problems: [
+        "Gestion du token JWT entre les pages sans perte de session au rechargement",
+        "Protection des routes privées — page profil inaccessible sans connexion",
+        "État global à maintenir de manière cohérente sur toute l'application avec Redux",
+        "Modélisation des endpoints transactions sans implémenter la page (Phase 2)",
+        "Synchronisation des modifications de profil entre l'API et le store Redux",
+      ],
+
+      solutions: [
+        "Persistance du token JWT dans le localStorage et rehydratation du store Redux",
+        "Routes privées avec redirection automatique vers /login si non authentifié",
+        "Store Redux centralisé avec actions et reducers séparés par fonctionnalité",
+        "Documentation Swagger rédigée en YAML en s'appuyant sur les maquettes transactions",
+        "Mise à jour du store Redux après confirmation de l'API pour garder l'état cohérent",
+      ],
+
+      result:
+        "Application bancaire responsive et fonctionnelle avec authentification JWT, gestion du profil et déconnexion. Documentation Swagger des endpoints transactions livrée en YAML pour la Phase 2. Code revu avec l'équipe technique d'Argent Bank.",
+
+      learnings: [
+        "Authentification JWT : connexion, persistance du token et sécurisation des routes",
+        "Architecture Redux : store, actions, reducers et intégration avec les appels API",
+        "Protection des routes privées dans une application React",
+        "Modélisation d'une API REST avec Swagger et export YAML",
+        "Intégration front-end / back-end via une API documentée (Node.js)",
+      ],
+
+      advice:
+        "Bien séparer les responsabilités dès le départ : les appels API dans des services dédiés, la logique métier dans Redux, et les composants React uniquement pour l'affichage. Ça rend le code infiniment plus facile à maintenir et à tester.",
+
+      tools: [
+        {
+          name: "React",
+          icon: "⚛️",
+          what: [
+            "Construire les pages (accueil, connexion, profil) en composants réutilisables",
+            "Gérer la navigation entre les pages avec React Router",
+            "Protéger les routes privées et rediriger les utilisateurs non authentifiés",
+          ],
+        },
+        {
+          name: "Redux",
+          icon: "🔄",
+          what: [
+            "Centraliser l'état global de l'application (utilisateur connecté, token, profil)",
+            "Gérer les actions de connexion, déconnexion et mise à jour du profil",
+            "Maintenir un état cohérent entre toutes les pages sans prop drilling",
+          ],
+        },
+        {
+          name: "JWT (JSON Web Token)",
+          icon: "🔐",
+          what: [
+            "Authentifier l'utilisateur auprès de l'API back-end à la connexion",
+            "Persister le token dans le localStorage pour maintenir la session au rechargement",
+            "Sécuriser les appels API nécessitant une authentification via le header Authorization",
+          ],
+        },
+        {
+          name: "API REST & Axios/Fetch",
+          icon: "🔌",
+          what: [
+            "Appeler les endpoints back-end pour la connexion, le profil et la mise à jour",
+            "Isoler les appels API dans des services dédiés hors composants React",
+            "Gérer les réponses et erreurs API pour informer l'utilisateur en temps réel",
+          ],
+        },
+        {
+          name: "Swagger & YAML",
+          icon: "📄",
+          what: [
+            "Modéliser les endpoints API des transactions pour la Phase 2",
+            "Décrire les méthodes HTTP, routes, paramètres et codes de réponse",
+            "Exporter la documentation en fichier YAML prêt à intégrer dans le back-end",
+          ],
+        },
+      ],
+
+      video: "/videos/prise-en-main-de-lapp-argentbank.mp4",
+      videoPoster: "/images/hero-banner-argentbank.webp",
+      images: [
+        "/images/hero-banner-argentbank.webp",
+        "/images/connexion-argentbank.webp",
+        "/images/tableau-bord-argentbank.webp",
+        "/images/editname-argentbank.webp",
+        "/images/page-transaction-argentbank.webp",
+        "/images/transaction-seule-argentbank.webp",
+      ],
+    },
+  },
+
+  {
+    id: 10,
+    slug: "dashboard-analytics-sportsee",
+    title: "Dashboard Analytics — SportSee",
+    subtitle: "React · Recharts · Axios · JSDoc · Node.js",
+    description:
+      "Développement d'un tableau de bord d'analytics de coaching sportif avec React : intégration de graphiques avancés (BarChart, LineChart, RadarChart, RadialBarChart), appels API via un service dédié et documentation complète.",
+    image: "/images/hero-banner-sportsee.webp",
+    type: "Projet de formation",
+    role: "Développement front-end et visualisation de données",
+    highlight: "Quatre graphiques interactifs alimentés par une API Node.js",
+    imageAlt:
+      "Tableau de bord sportif SportSee avec graphiques d’activité, score et données nutritionnelles",
+    tags: ["React", "Recharts", "Axios", "JavaScript", "JSDoc", "Node.js"],
+    github: "https://github.com/ByFrimouss/Sportsee-dashboard",
+    live: null,
+    featured: true,
+    year: 2025,
+    color: "#d3070a",
+
+    details: {
+      context:
+        "Mission chez SportSee, une startup de coaching sportif, pour développer la nouvelle page profil utilisateur. L'objectif était d'afficher les données d'activité sportive sous forme de graphiques interactifs en récupérant les données depuis un back-end Node.js, avec une documentation complète pour faciliter le travail en équipe.",
+
+      objectives: [
+        "Développer la page profil utilisateur en React selon la maquette Figma",
+        "Intégrer 4 types de graphiques avec Recharts (BarChart, LineChart, RadarChart, RadialBarChart)",
+        "Récupérer les données depuis l'API via un service dédié hors composants React",
+        "Standardiser les données de l'API pour gérer les différences entre utilisateurs",
+        "Documenter le projet avec un Readme, JSDoc et PropTypes",
+      ],
+
+      work: [
+        "Analyse de la maquette Figma et des User Stories du kanban",
+        "Mise en place du projet React et configuration de l'environnement",
+        "Création du mock des données API pour démarrer le développement sans back-end",
+        "Développement du service d'appels HTTP avec Axios hors composants React",
+        "Standardisation des données API pour uniformiser les schémas entre utilisateurs",
+        "Intégration du BarChart — activité quotidienne (poids et calories) avec tooltip",
+        "Intégration du LineChart — durée moyenne des sessions avec tooltip",
+        "Intégration du RadarChart — types d'activité sportive",
+        "Intégration du RadialBarChart — score de complétion de l'objectif journalier",
+        "Intégration des cards chiffres clés (calories, protéines, glucides, lipides)",
+        "Affichage dynamique du prénom utilisateur depuis l'API",
+        "Rédaction du Readme, JSDoc et PropTypes pour la documentation",
+      ],
+
+      problems: [
+        "Schéma de données légèrement différent selon les utilisateurs, nécessitant une standardisation",
+        "Appels HTTP à isoler dans un service dédié pour ne pas polluer les composants React",
+        "Démarrage du développement sans back-end disponible (mock nécessaire)",
+        "4 types de graphiques différents à intégrer et personnaliser selon la maquette",
+        "Documentation à produire en parallèle du développement pour faciliter la collaboration",
+      ],
+
+      solutions: [
+        "Création d'une couche de normalisation des données entre l'API et les composants",
+        "Service HTTP dédié avec Axios gérant tous les appels API hors composants",
+        "Mock des données API dès le départ pour développer en autonomie",
+        "Recharts choisi pour sa compatibilité native avec React et sa personnalisation",
+        "JSDoc sur chaque composant et fonction, PropTypes sur tous les composants React",
+      ],
+
+      result:
+        "Page profil utilisateur fonctionnelle avec 4 graphiques interactifs, données réelles depuis l'API Node.js, affichage responsive à partir de 1024x780px. Projet documenté avec Readme, JSDoc et PropTypes, prêt pour une reprise en équipe.",
+
+      learnings: [
+        "Intégration de graphiques avancés avec Recharts dans une app React",
+        "Architecture React avec séparation des responsabilités (composants / service API)",
+        "Normalisation des données d'une API pour gérer les variations de schéma",
+        "Mock de données API pour développer en parallèle du back-end",
+        "Documentation de code avec JSDoc et PropTypes pour le travail en équipe",
+      ],
+
+      advice:
+        "Toujours commencer par mocker les données avant de brancher l'API réelle. Ça permet de développer vite, de tester les composants indépendamment, et d'éviter d'être bloqué par le back-end.",
+
+      tools: [
+        {
+          name: "React",
+          icon: "⚛️",
+          what: [
+            "Construire l'interface en composants réutilisables et maintenables",
+            "Gérer l'état des données utilisateur et l'affichage conditionnel",
+            "Structurer le projet avec une séparation claire composants / services",
+          ],
+        },
+        {
+          name: "Recharts",
+          icon: "📊",
+          what: [
+            "Intégrer un BarChart pour l'activité quotidienne (poids et calories brûlées)",
+            "Intégrer un LineChart pour la durée moyenne des sessions",
+            "Intégrer un RadarChart pour les types d'activité sportive",
+            "Intégrer un RadialBarChart pour le score de complétion de l'objectif journalier",
+          ],
+        },
+        {
+          name: "Axios & service HTTP",
+          icon: "🔌",
+          what: [
+            "Centraliser tous les appels API dans un service dédié hors composants React",
+            "Récupérer les données utilisateur depuis les routes /user/:id et ses sous-routes",
+            "Gérer proprement les erreurs de requête sans polluer les composants",
+          ],
+        },
+        {
+          name: "Mock de données API",
+          icon: "🎭",
+          what: [
+            "Simuler les réponses de l'API pour démarrer le développement sans back-end",
+            "Tester les composants graphiques avec des données contrôlées",
+            "Basculer facilement entre données mockées et API réelle sans modifier les composants",
+          ],
+        },
+        {
+          name: "Normalisation des données",
+          icon: "🔄",
+          what: [
+            "Uniformiser les schémas de données différents selon les utilisateurs",
+            "Garantir que les composants reçoivent toujours le même format de données",
+            "Isoler la logique de transformation dans la couche service pour garder les composants propres",
+          ],
+        },
+        {
+          name: "JSDoc & PropTypes",
+          icon: "📖",
+          what: [
+            "Documenter chaque composant et fonction pour faciliter la reprise du code en équipe",
+            "Typer les props de chaque composant React pour détecter les erreurs à l'exécution",
+            "Générer une documentation lisible directement depuis les commentaires du code",
+          ],
+        },
+      ],
+
+      video: "/videos/prise-en-main-de-lapp-sportsee.mp4",
+      videoPoster: "/images/prise-en-main-sportsee-poster.webp",
+      images: [
+        "/images/hero-banner-sportsee.webp",
+        "/images/recharts-sportsee.webp",
+        "/images/organisation-fichier-sportsee.webp",
+        "/images/jsdocs-import-sportsee.webp",
+        "/images/tooltips-sportsee.webp",
+      ],
+    },
+  },
+
+  {
+    id: 9,
     slug: "portfolio-react",
     title: "Portfolio — FriMouSs",
     subtitle: "React 19 · Framer Motion · Redux · Vite · SASS",
@@ -238,452 +685,6 @@ export const projects = [
       ],
 
       images: ["/images/audit-lighthouse-100.webp"],
-    },
-  },
-  {
-    id: 11,
-    slug: "hrnet-jquery-vers-react",
-    title: "Migration jQuery → React — HRnet",
-    subtitle: "React · Redux Toolkit · Vite · npm · Lighthouse",
-    description:
-      "Migration complète de l'application RH HRnet de jQuery vers React : conversion d'un plugin jQuery en composant React publié sur npm, remplacement des plugins restants, audit de performance Lighthouse avant/après.",
-    image: "/images/hero-banner-hrnet.webp",
-    type: "Projet de formation",
-    role: "Migration front-end et publication d’un composant npm",
-    highlight: "Migration complète vers React sans jQuery résiduel",
-    imageAlt:
-      "Interface de gestion des employés de l’application RH HRnet migrée vers React",
-    tags: ["React", "Redux Toolkit", "Vite", "npm", "JavaScript"],
-    github: "https://github.com/ByFrimouss/hrnet-react",
-    npm: "https://www.npmjs.com/package/@byfrimouss/hrnet-modal-react",
-    live: null,
-    featured: true,
-    year: 2026,
-    color: "#f0a500",
-
-    details: {
-      context:
-        "Mission chez WealthHealth pour moderniser HRnet, leur application RH interne utilisée pour gérer les dossiers employés. L'application souffrait de bugs importants causés par des plugins jQuery obsolètes. L'objectif était de migrer l'ensemble vers React en convertissant un plugin jQuery en composant React publié sur npm, et en remplaçant les autres plugins par des librairies React modernes.",
-
-      objectives: [
-        "Convertir l'application HRnet de jQuery vers React 100% sans jQuery résiduel",
-        "Convertir le plugin jQuery modal en composant React et le publier sur npm",
-        "Remplacer les 3 plugins restants par des librairies React modernes",
-        "Mesurer les gains de performance avec des audits Lighthouse avant/après",
-        "Documenter le composant React publié avec un Readme complet",
-      ],
-
-      work: [
-        "Analyse du code jQuery existant et identification des 4 plugins à remplacer",
-        "Conversion du plugin modal jQuery en composant React fonctionnel",
-        "Publication du composant @byfrimouss/hrnet-modal-react sur npm",
-        "Rédaction du Readme avec description, props et exemples d'utilisation",
-        "Mise en place du projet React avec Vite et configuration Redux Toolkit",
-        "Intégration de react-datepicker pour remplacer le sélecteur de date jQuery",
-        "Intégration de react-select pour remplacer les menus déroulants jQuery",
-        "Intégration de TanStack Table pour remplacer le plugin de tableau jQuery",
-        "Développement de la page Create Employee avec formulaire complet",
-        "Développement de la page Employee List avec recherche, tri et pagination",
-        "Audit Lighthouse sur l'application jQuery originale (avant)",
-        "Build de production et audit Lighthouse sur l'application React (après)",
-      ],
-
-      problems: [
-        "Plugins jQuery causant des bugs, lenteurs et manipulation DOM excessive",
-        "Application entière à migrer sans laisser cohabiter jQuery et React",
-        "Composant modal à concevoir de zéro en paradigme fonctionnel React",
-        "Publication npm avec documentation claire pour que l'équipe puisse l'utiliser",
-        "Gestion de l'état global (remplaçant le localStorage jQuery) avec Redux Toolkit",
-      ],
-
-      solutions: [
-        "Migration 100% React avec Vite — zéro jQuery résiduel dans le code final",
-        "Composant modal en fonctions pures React, documenté et publié sur npm",
-        "react-datepicker, react-select et TanStack Table pour les 3 plugins restants",
-        "Redux Toolkit pour centraliser l'état des employés en remplacement du localStorage",
-        "Build de production avant les audits Lighthouse pour des mesures représentatives",
-      ],
-
-      result:
-        "Application HRnet entièrement migrée vers React avec des performances significativement améliorées mesurées par Lighthouse. Composant modal React publié sur npm (@byfrimouss/hrnet-modal-react) et documenté pour une réutilisation par l'équipe.",
-
-      learnings: [
-        "Migration d'une application jQuery vers React sans dette technique résiduelle",
-        "Création et publication d'un package React sur npm avec documentation",
-        "Architecture Redux Toolkit pour la gestion d'état global",
-        "Utilisation de TanStack Table pour des tableaux avec tri, recherche et pagination",
-        "Mesure et comparaison des performances avec Google Lighthouse avant/après migration",
-        "Paradigme fonctionnel React : composants fonctions, hooks, pas de classes",
-      ],
-
-      advice:
-        "Avant de migrer, auditer les performances de l'application existante. Sans mesure avant/après, impossible de prouver la valeur du travail réalisé — et les gains sont souvent bien plus importants qu'attendu.",
-
-      tools: [
-        {
-          name: "React 18 + Vite",
-          icon: "⚛️",
-          what: [
-            "Reconstruire l'application HRnet entièrement en composants fonctionnels React",
-            "Profiter du démarrage ultra-rapide de Vite en développement",
-            "Générer un build de production optimisé pour les audits Lighthouse",
-          ],
-        },
-        {
-          name: "Redux Toolkit",
-          icon: "🔄",
-          what: [
-            "Remplacer le localStorage jQuery par un store centralisé et maintenable",
-            "Gérer la liste des employés avec des actions et reducers simplifiés",
-            "Maintenir un état cohérent entre les pages Create Employee et Employee List",
-          ],
-        },
-        {
-          name: "@byfrimouss/hrnet-modal-react",
-          icon: "📦",
-          what: [
-            "Remplacer le plugin jQuery.modal.js par un composant React fonctionnel",
-            "Publier le composant sur npm pour le rendre réutilisable par toute l'équipe",
-            "Documenter les props et l'utilisation dans un Readme complet",
-          ],
-        },
-        {
-          name: "TanStack Table",
-          icon: "📋",
-          what: [
-            "Remplacer le plugin jQuery DataTables par une solution React native",
-            "Implémenter la recherche, le tri par colonne et la pagination côté client",
-            "Garder un code maintenable et performant sans manipulation DOM jQuery",
-          ],
-        },
-        {
-          name: "react-datepicker & react-select",
-          icon: "🗓️",
-          what: [
-            "Remplacer le sélecteur de date jQuery par un composant React accessible",
-            "Remplacer les menus déroulants jQuery par react-select personnalisable",
-            "Éliminer les appels réseau et manipulations DOM superflus des plugins jQuery",
-          ],
-        },
-        {
-          name: "Google Lighthouse",
-          icon: "📊",
-          what: [
-            "Auditer les performances de l'application jQuery originale comme baseline",
-            "Mesurer les gains réels après migration sur le build de production React",
-            "Produire des rapports comparatifs quantifiables pour justifier la migration",
-          ],
-        },
-        {
-          name: "npm (publication de package)",
-          icon: "🚀",
-          what: [
-            "Publier le composant modal sous le scope @byfrimouss sur npm",
-            "Permettre à l'équipe d'installer le composant via npm install",
-            "Versionner le package pour pouvoir itérer sans casser les projets existants",
-          ],
-        },
-      ],
-
-      images: [
-        "/images/hero-banner-hrnet.webp",
-        "/images/creation-employee-hrnet.webp",
-        "/images/liste-employee-hrnet.webp",
-        "/images/publication-npm-hrnet.webp",
-        "/images/doc-npm-hrnet.webp",
-      ],
-    },
-  },
-
-  {
-    id: 10,
-    slug: "argent-bank-react-redux",
-    title: "Application Bancaire — Argent Bank",
-    subtitle: "React · Redux · API REST · JWT · Swagger",
-    description:
-      "Développement front-end d'une application bancaire avec React et Redux : authentification JWT, gestion du profil utilisateur et modélisation des endpoints API transactions avec Swagger.",
-    image: "/images/hero-banner-argentbank.webp",
-    type: "Projet de formation",
-    role: "Développement front-end et modélisation d’API",
-    highlight:
-      "Authentification JWT et endpoints de transactions documentés avec Swagger",
-    imageAlt:
-      "Tableau de bord de l’application bancaire Argent Bank développé avec React et Redux",
-    tags: [
-      "React",
-      "Redux",
-      "JavaScript",
-      "JWT",
-      "Swagger",
-      "API REST",
-      "Node.js",
-    ],
-    github: "https://github.com/ByFrimouss/Argent-bank",
-    live: null,
-    featured: true,
-    year: 2026,
-    color: "#27b981",
-
-    details: {
-      context:
-        "Mission chez Remede Agency pour Argent Bank, une nouvelle banque cherchant à se lancer avec une application web moderne. Le projet se décomposait en deux phases : développer l'authentification utilisateur et la gestion du profil en Phase 1, puis modéliser les endpoints API pour les transactions en Phase 2.",
-
-      objectives: [
-        "Développer l'application web complète et responsive avec React",
-        "Gérer l'état global de l'application avec Redux",
-        "Intégrer l'authentification JWT via les appels à l'API REST",
-        "Permettre la consultation et la modification du profil utilisateur",
-        "Modéliser les endpoints API des transactions avec Swagger (Phase 2)",
-      ],
-
-      work: [
-        "Fork du repo existant et prise en main des issues GitHub",
-        "Mise en place du store Redux avec actions et reducers",
-        "Intégration de la page d'accueil avec les données du mockup",
-        "Développement de la page de connexion avec appel API et gestion du token JWT",
-        "Gestion de la persistance du token et protection des routes privées",
-        "Développement de la page profil avec affichage des données utilisateur",
-        "Implémentation de la modification du prénom et nom via appel API",
-        "Déconnexion avec suppression du token et redirection vers l'accueil",
-        "Modélisation des endpoints API transactions en Phase 2 avec Swagger",
-        "Export du fichier YAML de la documentation Swagger",
-      ],
-
-      problems: [
-        "Gestion du token JWT entre les pages sans perte de session au rechargement",
-        "Protection des routes privées — page profil inaccessible sans connexion",
-        "État global à maintenir de manière cohérente sur toute l'application avec Redux",
-        "Modélisation des endpoints transactions sans implémenter la page (Phase 2)",
-        "Synchronisation des modifications de profil entre l'API et le store Redux",
-      ],
-
-      solutions: [
-        "Persistance du token JWT dans le localStorage et rehydratation du store Redux",
-        "Routes privées avec redirection automatique vers /login si non authentifié",
-        "Store Redux centralisé avec actions et reducers séparés par fonctionnalité",
-        "Documentation Swagger rédigée en YAML en s'appuyant sur les maquettes transactions",
-        "Mise à jour du store Redux après confirmation de l'API pour garder l'état cohérent",
-      ],
-
-      result:
-        "Application bancaire responsive et fonctionnelle avec authentification JWT, gestion du profil et déconnexion. Documentation Swagger des endpoints transactions livrée en YAML pour la Phase 2. Code revu avec l'équipe technique d'Argent Bank.",
-
-      learnings: [
-        "Authentification JWT : connexion, persistance du token et sécurisation des routes",
-        "Architecture Redux : store, actions, reducers et intégration avec les appels API",
-        "Protection des routes privées dans une application React",
-        "Modélisation d'une API REST avec Swagger et export YAML",
-        "Intégration front-end / back-end via une API documentée (Node.js)",
-      ],
-
-      advice:
-        "Bien séparer les responsabilités dès le départ : les appels API dans des services dédiés, la logique métier dans Redux, et les composants React uniquement pour l'affichage. Ça rend le code infiniment plus facile à maintenir et à tester.",
-
-      tools: [
-        {
-          name: "React",
-          icon: "⚛️",
-          what: [
-            "Construire les pages (accueil, connexion, profil) en composants réutilisables",
-            "Gérer la navigation entre les pages avec React Router",
-            "Protéger les routes privées et rediriger les utilisateurs non authentifiés",
-          ],
-        },
-        {
-          name: "Redux",
-          icon: "🔄",
-          what: [
-            "Centraliser l'état global de l'application (utilisateur connecté, token, profil)",
-            "Gérer les actions de connexion, déconnexion et mise à jour du profil",
-            "Maintenir un état cohérent entre toutes les pages sans prop drilling",
-          ],
-        },
-        {
-          name: "JWT (JSON Web Token)",
-          icon: "🔐",
-          what: [
-            "Authentifier l'utilisateur auprès de l'API back-end à la connexion",
-            "Persister le token dans le localStorage pour maintenir la session au rechargement",
-            "Sécuriser les appels API nécessitant une authentification via le header Authorization",
-          ],
-        },
-        {
-          name: "API REST & Axios/Fetch",
-          icon: "🔌",
-          what: [
-            "Appeler les endpoints back-end pour la connexion, le profil et la mise à jour",
-            "Isoler les appels API dans des services dédiés hors composants React",
-            "Gérer les réponses et erreurs API pour informer l'utilisateur en temps réel",
-          ],
-        },
-        {
-          name: "Swagger & YAML",
-          icon: "📄",
-          what: [
-            "Modéliser les endpoints API des transactions pour la Phase 2",
-            "Décrire les méthodes HTTP, routes, paramètres et codes de réponse",
-            "Exporter la documentation en fichier YAML prêt à intégrer dans le back-end",
-          ],
-        },
-      ],
-
-      video: "/videos/prise-en-main-de-lapp-argentbank.mp4",
-      videoPoster: "/images/hero-banner-argentbank.webp",
-      images: [
-        "/images/hero-banner-argentbank.webp",
-        "/images/connexion-argentbank.webp",
-        "/images/tableau-bord-argentbank.webp",
-        "/images/editname-argentbank.webp",
-        "/images/page-transaction-argentbank.webp",
-        "/images/transaction-seule-argentbank.webp",
-      ],
-    },
-  },
-
-  {
-    id: 9,
-    slug: "dashboard-analytics-sportsee",
-    title: "Dashboard Analytics — SportSee",
-    subtitle: "React · Recharts · Axios · JSDoc · Node.js",
-    description:
-      "Développement d'un tableau de bord d'analytics de coaching sportif avec React : intégration de graphiques avancés (BarChart, LineChart, RadarChart, RadialBarChart), appels API via un service dédié et documentation complète.",
-    image: "/images/hero-banner-sportsee.webp",
-    type: "Projet de formation",
-    role: "Développement front-end et visualisation de données",
-    highlight: "Quatre graphiques interactifs alimentés par une API Node.js",
-    imageAlt:
-      "Tableau de bord sportif SportSee avec graphiques d’activité, score et données nutritionnelles",
-    tags: ["React", "Recharts", "Axios", "JavaScript", "JSDoc", "Node.js"],
-    github: "https://github.com/ByFrimouss/Sportsee-dashboard",
-    live: null,
-    featured: true,
-    year: 2025,
-    color: "#d3070a",
-
-    details: {
-      context:
-        "Mission chez SportSee, une startup de coaching sportif, pour développer la nouvelle page profil utilisateur. L'objectif était d'afficher les données d'activité sportive sous forme de graphiques interactifs en récupérant les données depuis un back-end Node.js, avec une documentation complète pour faciliter le travail en équipe.",
-
-      objectives: [
-        "Développer la page profil utilisateur en React selon la maquette Figma",
-        "Intégrer 4 types de graphiques avec Recharts (BarChart, LineChart, RadarChart, RadialBarChart)",
-        "Récupérer les données depuis l'API via un service dédié hors composants React",
-        "Standardiser les données de l'API pour gérer les différences entre utilisateurs",
-        "Documenter le projet avec un Readme, JSDoc et PropTypes",
-      ],
-
-      work: [
-        "Analyse de la maquette Figma et des User Stories du kanban",
-        "Mise en place du projet React et configuration de l'environnement",
-        "Création du mock des données API pour démarrer le développement sans back-end",
-        "Développement du service d'appels HTTP avec Axios hors composants React",
-        "Standardisation des données API pour uniformiser les schémas entre utilisateurs",
-        "Intégration du BarChart — activité quotidienne (poids et calories) avec tooltip",
-        "Intégration du LineChart — durée moyenne des sessions avec tooltip",
-        "Intégration du RadarChart — types d'activité sportive",
-        "Intégration du RadialBarChart — score de complétion de l'objectif journalier",
-        "Intégration des cards chiffres clés (calories, protéines, glucides, lipides)",
-        "Affichage dynamique du prénom utilisateur depuis l'API",
-        "Rédaction du Readme, JSDoc et PropTypes pour la documentation",
-      ],
-
-      problems: [
-        "Schéma de données légèrement différent selon les utilisateurs, nécessitant une standardisation",
-        "Appels HTTP à isoler dans un service dédié pour ne pas polluer les composants React",
-        "Démarrage du développement sans back-end disponible (mock nécessaire)",
-        "4 types de graphiques différents à intégrer et personnaliser selon la maquette",
-        "Documentation à produire en parallèle du développement pour faciliter la collaboration",
-      ],
-
-      solutions: [
-        "Création d'une couche de normalisation des données entre l'API et les composants",
-        "Service HTTP dédié avec Axios gérant tous les appels API hors composants",
-        "Mock des données API dès le départ pour développer en autonomie",
-        "Recharts choisi pour sa compatibilité native avec React et sa personnalisation",
-        "JSDoc sur chaque composant et fonction, PropTypes sur tous les composants React",
-      ],
-
-      result:
-        "Page profil utilisateur fonctionnelle avec 4 graphiques interactifs, données réelles depuis l'API Node.js, affichage responsive à partir de 1024x780px. Projet documenté avec Readme, JSDoc et PropTypes, prêt pour une reprise en équipe.",
-
-      learnings: [
-        "Intégration de graphiques avancés avec Recharts dans une app React",
-        "Architecture React avec séparation des responsabilités (composants / service API)",
-        "Normalisation des données d'une API pour gérer les variations de schéma",
-        "Mock de données API pour développer en parallèle du back-end",
-        "Documentation de code avec JSDoc et PropTypes pour le travail en équipe",
-      ],
-
-      advice:
-        "Toujours commencer par mocker les données avant de brancher l'API réelle. Ça permet de développer vite, de tester les composants indépendamment, et d'éviter d'être bloqué par le back-end.",
-
-      tools: [
-        {
-          name: "React",
-          icon: "⚛️",
-          what: [
-            "Construire l'interface en composants réutilisables et maintenables",
-            "Gérer l'état des données utilisateur et l'affichage conditionnel",
-            "Structurer le projet avec une séparation claire composants / services",
-          ],
-        },
-        {
-          name: "Recharts",
-          icon: "📊",
-          what: [
-            "Intégrer un BarChart pour l'activité quotidienne (poids et calories brûlées)",
-            "Intégrer un LineChart pour la durée moyenne des sessions",
-            "Intégrer un RadarChart pour les types d'activité sportive",
-            "Intégrer un RadialBarChart pour le score de complétion de l'objectif journalier",
-          ],
-        },
-        {
-          name: "Axios & service HTTP",
-          icon: "🔌",
-          what: [
-            "Centraliser tous les appels API dans un service dédié hors composants React",
-            "Récupérer les données utilisateur depuis les routes /user/:id et ses sous-routes",
-            "Gérer proprement les erreurs de requête sans polluer les composants",
-          ],
-        },
-        {
-          name: "Mock de données API",
-          icon: "🎭",
-          what: [
-            "Simuler les réponses de l'API pour démarrer le développement sans back-end",
-            "Tester les composants graphiques avec des données contrôlées",
-            "Basculer facilement entre données mockées et API réelle sans modifier les composants",
-          ],
-        },
-        {
-          name: "Normalisation des données",
-          icon: "🔄",
-          what: [
-            "Uniformiser les schémas de données différents selon les utilisateurs",
-            "Garantir que les composants reçoivent toujours le même format de données",
-            "Isoler la logique de transformation dans la couche service pour garder les composants propres",
-          ],
-        },
-        {
-          name: "JSDoc & PropTypes",
-          icon: "📖",
-          what: [
-            "Documenter chaque composant et fonction pour faciliter la reprise du code en équipe",
-            "Typer les props de chaque composant React pour détecter les erreurs à l'exécution",
-            "Générer une documentation lisible directement depuis les commentaires du code",
-          ],
-        },
-      ],
-
-      video: "/videos/prise-en-main-de-lapp-sportsee.mp4",
-      videoPoster: "/images/prise-en-main-sportsee-poster.webp",
-      images: [
-        "/images/hero-banner-sportsee.webp",
-        "/images/recharts-sportsee.webp",
-        "/images/organisation-fichier-sportsee.webp",
-        "/images/jsdocs-import-sportsee.webp",
-        "/images/tooltips-sportsee.webp",
-      ],
     },
   },
 

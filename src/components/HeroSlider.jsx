@@ -1,6 +1,6 @@
-// ============================================================
-// HeroSlider.jsx — Hero de Stéphanie COUPAMA "Fri'MouSs"
-// ============================================================
+// =========================
+// HeroSlider.jsx — Hero
+// ========================
 
 import { useEffect, useRef, useState } from "react";
 import {
@@ -16,11 +16,14 @@ import { Link } from "react-router-dom";
 import "./HeroSlider.scss";
 
 const HERO_IMAGE = "/images/cover_2-removebg-preview.webp";
+const CV_URL = "/CV-2026-coupama.pdf";
 
 const ROTATING_WORDS = [
-  "Développeuse React JS",
-  "Développeuse WordPress",
-  "Graphiste Web",
+  "UX / UI Design",
+  "E-commerce",
+  "Graphisme Web",
+  "SEO",
+  "Audit Web",
 ];
 
 const containerVariants = {
@@ -223,81 +226,103 @@ export default function HeroSlider() {
             Basé à La Réunion
           </motion.div>
 
-          {/* Titre */}
+          {/* Titre principal : un seul H1, avec deux lignes visuelles */}
           <div className="hero__title-wrapper">
             <motion.h1
-              className="hero__greeting"
-              variants={containerVariants}
+              className="hero__headline"
               initial="hidden"
               animate="visible"
               style={{ perspective: 1000 }}
             >
-              {line1.split("").map((character, index) => (
-                <motion.span
-                  key={`${character}-${index}`}
-                  className="hero__letter"
-                  variants={letterVariants}
-                >
-                  {character === " " ? "\u00A0" : character}
-                </motion.span>
-              ))}
-            </motion.h1>
-
-            <motion.h2
-              className="hero__name"
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-              style={{ perspective: 1000 }}
-            >
-              {line2.split("").map((character, index) => (
-                <motion.span
-                  key={`${character}-${index}`}
-                  className="hero__letter hero__letter--name"
-                  variants={letterVariants}
-                >
-                  {character === " " ? "\u00A0" : character}
-                </motion.span>
-              ))}
-            </motion.h2>
-          </div>
-
-          {/* Métier rotatif */}
-          <div className="hero__role-wrapper">
-            <AnimatePresence mode="wait">
               <motion.span
-                key={wordIndex}
-                className="hero__role"
-                initial={
-                  prefersReducedMotion ? { opacity: 1 } : { opacity: 0, y: 20 }
-                }
-                animate={{ opacity: 1, y: 0 }}
-                exit={
-                  prefersReducedMotion ? { opacity: 0 } : { opacity: 0, y: -20 }
-                }
-                transition={{
-                  duration: prefersReducedMotion ? 0 : 0.4,
-                }}
+                className="hero__greeting"
+                variants={containerVariants}
               >
-                {ROTATING_WORDS[wordIndex]}
+                {line1.split("").map((character, index) => (
+                  <motion.span
+                    key={`${character}-${index}`}
+                    className="hero__letter"
+                    variants={letterVariants}
+                  >
+                    {character === " " ? "\u00A0" : character}
+                  </motion.span>
+                ))}
               </motion.span>
-            </AnimatePresence>
 
-            <motion.span
-              className="hero__cursor"
-              animate={
-                prefersReducedMotion ? { opacity: 1 } : { opacity: [1, 0, 1] }
-              }
-              transition={
-                prefersReducedMotion
-                  ? { duration: 0 }
-                  : { duration: 1, repeat: Infinity }
-              }
-              aria-hidden="true"
-            >
-              _
-            </motion.span>
+              <motion.span className="hero__name" variants={containerVariants}>
+                {line2.split("").map((character, index) => (
+                  <motion.span
+                    key={`${character}-${index}`}
+                    className="hero__letter hero__letter--name"
+                    variants={letterVariants}
+                  >
+                    {character === " " ? "\u00A0" : character}
+                  </motion.span>
+                ))}
+              </motion.span>
+            </motion.h1>
           </div>
+
+          {/* Positionnement principal fixe + signature secondaire animée */}
+          <motion.div
+            className="hero__role-group"
+            variants={fadeUpVariants}
+            initial="hidden"
+            animate="visible"
+            custom={0.7}
+          >
+            <p className="hero__role-primary">Développeuse React & WordPress</p>
+
+            <div className="hero__role-wrapper" aria-hidden="true">
+              <span className="hero__role-symbol">//</span>
+
+              <AnimatePresence mode="wait">
+                <motion.span
+                  key={wordIndex}
+                  className="hero__role"
+                  initial={
+                    prefersReducedMotion
+                      ? { opacity: 1 }
+                      : { opacity: 0, y: 14, filter: "blur(4px)" }
+                  }
+                  animate={{
+                    opacity: 1,
+                    y: 0,
+                    filter: "blur(0px)",
+                  }}
+                  exit={
+                    prefersReducedMotion
+                      ? { opacity: 0 }
+                      : { opacity: 0, y: -14, filter: "blur(4px)" }
+                  }
+                  transition={{
+                    duration: prefersReducedMotion ? 0 : 0.35,
+                  }}
+                >
+                  {ROTATING_WORDS[wordIndex]}
+                </motion.span>
+              </AnimatePresence>
+
+              <motion.span
+                className="hero__cursor"
+                animate={
+                  prefersReducedMotion ? { opacity: 1 } : { opacity: [1, 0, 1] }
+                }
+                transition={
+                  prefersReducedMotion
+                    ? { duration: 0 }
+                    : { duration: 0.9, repeat: Infinity }
+                }
+              >
+                _
+              </motion.span>
+            </div>
+
+            <span className="hero__role-accessible">
+              Compétences complémentaires : UX/UI Design, e-commerce, SEO, audit
+              web et graphisme web.
+            </span>
+          </motion.div>
 
           {/* Description */}
           <motion.p
@@ -307,9 +332,9 @@ export default function HeroSlider() {
             animate="visible"
             custom={0.9}
           >
-            Je conçois des interfaces React et WordPress modernes, accessibles
-            et mémorables, de l’identité graphique jusqu’à la mise en
-            production.
+            Je conçois des expériences web où chaque détail compte : une
+            navigation fluide, une identité forte et un résultat pensé pour
+            faire la différence.
           </motion.p>
 
           {/* Boutons */}
@@ -324,9 +349,14 @@ export default function HeroSlider() {
               Voir mes projets <span className="btn__arrow">→</span>
             </Link>
 
-            <Link to="/about" className="btn btn--ghost">
-              Mon parcours
-            </Link>
+            <a
+              href={CV_URL}
+              className="btn btn--ghost"
+              download="CV-Stephanie-Coupama-2026.pdf"
+              aria-label="Télécharger le CV de Stéphanie Coupama au format PDF"
+            >
+              Télécharger mon CV
+            </a>
           </motion.div>
 
           {/* Indicateur de scroll */}
