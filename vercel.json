@@ -25,6 +25,15 @@
     { "src": "/sitemap.xml", "dest": "/sitemap.xml" },
     { "src": "/robots.txt", "dest": "/robots.txt" },
     {
+      "src": "/CV-2026-coupama.pdf",
+      "dest": "/CV-2026-coupama.pdf",
+      "headers": {
+        "Content-Type": "application/pdf",
+        "Content-Disposition": "attachment; filename=\"CV-Stephanie-Coupama-2026.pdf\"",
+        "Cache-Control": "public, max-age=3600"
+      }
+    },
+    {
       "src": "/",
       "dest": "/index.html",
       "headers": {
